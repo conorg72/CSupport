@@ -1,0 +1,5656 @@
+<!DOCTYPE html>
+<meta charset="UTF-8">
+<style>
+
+.node circle {
+  fill: #fff;
+  stroke: steelblue;
+  stroke-width: 3px;
+}
+
+.node text {
+  font: 12px sans-serif;
+}
+
+.link {
+  fill: none;
+  stroke: #ccc;
+  stroke-width: 2px;
+}
+
+</style>
+
+<body>
+
+<!-- load the d3.js library -->	
+<script src="https://d3js.org/d3.v4.min.js"></script>
+<script>
+
+var treeData =
+  {
+    "name": "Confluence Plugin Vendors",
+    "children": [{
+        "name": "Atlassian",
+        "children": [{
+            "name": "Confluence Editor Compatibility Support",
+            "children": [{
+                "name": "Version 6.15.2",
+                "size": 3938
+            }, {
+                "name": "ENABLED",
+                "size": 3812
+            }, {
+                "name": "Framework Version: 2",
+                "size": 6714
+            }, {
+                "name": "Bundled",
+                "size": 743
+            }]
+        }, {
+            "name": "Confluence Active Objects SPI Implementation",
+            "children": [{
+                "name": "Version 1.5.2",
+                "size": 3534
+            }, {
+                "name": "ENABLED",
+                "size": 5731
+            }, {
+                "name": "Framework Version: 2",
+                "size": 7840
+            }, {
+                "name": "Bundled",
+                "size": 5914
+            }]
+        }, {
+            "name": "Dynamic Task List 2 Plugin",
+            "children": [{
+                "name": "Version 5.0.3",
+                "size": 7074
+             }, {
+                "name": "ENABLED",
+                "size": 5731
+             }, {
+                "name": "Framework Version: 2",
+                "size": 5731
+             }, {
+                "name": "Bundled",
+                "size": 5731
+            }]
+        }, {
+            "name": "Atlassian OAuth Consumer Plugin",
+            "children": [{
+                "name": "Version 4.0.0",
+                "size": 7074
+             }, {
+                "name": "ENABLED",
+                "size": 5731
+             }, {
+                "name": "Framework Version: 2",
+                "size": 5731
+             }, {
+                "name": "Bundled",
+                "size": 5731
+            }]
+        }, {
+            "name": "Confluence daily summary email",
+            "children": [{
+                "name": "Version 6.0.0",
+                "size": 7074
+             }, {
+                "name": "ENABLED",
+                "size": 5731
+             }, {
+                "name": "Framework Version: 2",
+                "size": 5731
+             }, {
+                "name": "Bundled",
+                "size": 5731
+            }]
+        }, {
+            "name": "Atlassian Embedded Crowd - Administration Plugin",
+            "children": [{
+                "name": "Version 2.3.3",
+                "size": 7074
+             }, {
+                "name": "ENABLED",
+                "size": 5731
+             }, {
+                "name": "Framework Version: 2",
+                "size": 5731
+             }, {
+                "name": "Bundled",
+                "size": 5731
+            }]
+         }, {
+            "name": "Analytics Client Plugin",
+            "children": [{
+                "name": "Version 5.6.0",
+                "size": 7074
+             }, {
+                "name": "ENABLED",
+                "size": 5731
+             }, {
+                "name": "Framework Version: 2",
+                "size": 5731
+             }, {
+                "name": "Bundled",
+                "size": 5731
+            }]
+        }, {
+            "name": "Confluence Dutch (Netherlands) Language Pack",
+            "children": [{
+                "name": "Version 6.15.0 (rcl-20190311231818)",
+                "size": 7074
+             }, {
+                "name": "ENABLED",
+                "size": 5731
+             }, {
+                "name": "Framework Version: 2",
+                "size": 5731
+             }, {
+                "name": "Bundled",
+                "size": 5731
+            }]    
+        }, {
+            "name": "Basic Macros",
+            "children": [{
+                "name": "Version 3.1.1",
+                "size": 7074
+             }, {
+                "name": "ENABLED",
+                "size": 5731
+             }, {
+                "name": "Framework Version: 2",
+                "size": 5731
+             }, {
+                "name": "Bundled",
+                "size": 5731
+            }]
+        }, {
+            "name": "Atlassian Navigation Links Plugin",
+            "children": [{
+                "name": "Version 4.3.0",
+                "size": 7074
+             }, {
+                "name": "ENABLED",
+                "size": 5731
+             }, {
+                "name": "Framework Version: 2",
+                "size": 5731
+             }, {
+                "name": "Bundled",
+                "size": 5731
+            }]
+        }, {
+            "name": "Confluence Hipchat Integration Plugin",
+            "children": [{
+                "name": "Version 7.11.5",
+                "size": 7074
+             }, {
+                "name": "ENABLED",
+                "size": 5731
+             }, {
+                "name": "Framework Version: 2",
+                "size": 5731
+             }, {
+                "name": "Bundled",
+                "size": 5731
+            }]
+        }, {
+            "name": "Confluence Page Hierarchy Plugin",
+            "children": [{
+                "name": "Version 3.0.6",
+                "size": 7074
+             }, {
+                "name": "ENABLED",
+                "size": 5731
+             }, {
+                "name": "Framework Version: 2",
+                "size": 5731
+             }, {
+                "name": "Bundled",
+                "size": 5731
+            }]
+        }, {
+            "name": "Atlassian Gadgets API",
+            "children": [{
+                "name": "Version 4.3.2",
+                "size": 7074
+             }, {
+                "name": "ENABLED",
+                "size": 5731
+             }, {
+                "name": "Framework Version: 2",
+                "size": 5731
+             }, {
+                "name": "Bundled",
+                "size": 5731
+            }]
+        }, {
+            "name": "Confluence Jira Plugin",
+            "children": [{
+                "name": "Version 10.0.8",
+                "size": 7074
+             }, {
+                "name": "ENABLED",
+                "size": 5731
+             }, {
+                "name": "Framework Version: 2",
+                "size": 5731
+             }, {
+                "name": "Bundled",
+                "size": 5731
+            }]
+        }, {
+            "name": "Search Web Interface",
+            "children": [{
+                "name": "Version 1.0",
+                "size": 7074
+             }, {
+                "name": "ENABLED",
+                "size": 5731
+             }, {
+                "name": "Framework Version: 1",
+                "size": 5731
+             }, {
+                "name": "Provided",
+                "size": 5731
+            }]
+        }, {
+            "name": "Atlassian Hipchat Integration Plugin Core",
+            "children": [{
+                "name": "Version 7.11.5",
+                "size": 7074
+             }, {
+                "name": "ENABLED",
+                "size": 5731
+             }, {
+                "name": "Framework Version: 2",
+                "size": 5731
+             }, {
+                "name": "Bundled",
+                "size": 5731
+            }]
+        }, {
+            "name": "Upgrade Administration Interface",
+            "children": [{
+                "name": "Version 1.0",
+                "size": 7074
+             }, {
+                "name": "ENABLED",
+                "size": 5731
+             }, {
+                "name": "Framework Version: 1",
+                "size": 5731
+             }, {
+                "name": "Provided",
+                "size": 5731
+            }]
+        }, {
+            "name": "Confluence Collaborative Editor Plugin",
+            "children": [{
+                "name": "Version 3.1.0",
+                "size": 7074
+             }, {
+                "name": "ENABLED",
+                "size": 5731
+             }, {
+                "name": "Framework Version: 2",
+                "size": 5731
+             }, {
+                "name": "Bundled",
+                "size": 5731
+            }]
+        }, {
+            "name": "Confluence Macro Browser",
+            "children": [{
+                "name": "Version 6.15.2",
+                "size": 7074
+             }, {
+                "name": "ENABLED",
+                "size": 5731
+             }, {
+                "name": "Framework Version: 2",
+                "size": 5731
+             }, {
+                "name": "Bundled",
+                "size": 5731
+            }]
+        }, {
+            "name": "Confluence old Prototype REST API",
+            "children": [{
+                "name": "Version 6.15.2",
+                "size": 7074
+             }, {
+                "name": "ENABLED",
+                "size": 5731
+             }, {
+                "name": "Framework Version: 2",
+                "size": 5731
+             }, {
+                "name": "Bundled",
+                "size": 5731
+            }]
+        }, {
+            "name": "Confluence What&amp;apos;s New",
+            "children": [{
+                "name": "Version 6.10.3",
+                "size": 7074
+             }, {
+                "name": "ENABLED",
+                "size": 5731
+             }, {
+                "name": "Framework Version: 2",
+                "size": 5731
+             }, {
+                "name": "Bundled",
+                "size": 5731
+            }]
+        }, {
+            "name": "Office Connector plugin",
+            "children": [{
+                "name": "Version 9.0.0",
+                "size": 7074
+             }, {
+                "name": "ENABLED",
+                "size": 5731
+             }, {
+                "name": "Framework Version: 2",
+                "size": 5731
+             }, {
+                "name": "Bundled",
+                "size": 5731
+            }]
+        }, {
+            "name": "Confluence Hungarian (Hungary) Language Pack",
+            "children": [{
+                "name": "Version 6.15.0",
+                "size": 7074
+             }, {
+                "name": "ENABLED",
+                "size": 5731
+             }, {
+                "name": "Framework Version: 2",
+                "size": 5731
+             }, {
+                "name": "Bundled",
+                "size": 5731
+            }]
+        }, {
+            "name": "Atlassian GraphQL - Module Types",
+            "children": [{
+                "name": "Version 1.1.32",
+                "size": 7074
+             }, {
+                "name": "ENABLED",
+                "size": 5731
+             }, {
+                "name": "Framework Version: 2",
+                "size": 5731
+             }, {
+                "name": "Bundled",
+                "size": 5731
+            }]
+        }, {
+            "name": "Table Filter and Charts for Confluence",
+            "children": [{
+                "name": "Version 5.0.5",
+                "size": 7074
+             }, {
+                "name": "ENABLED",
+                "size": 5731
+             }, {
+                "name": "Framework Version: 2",
+                "size": 5731
+             }, {
+                "name": "User Installed",
+                "size": 5731
+            }]
+        }, {
+            "name": "IM Presence NG Plugin",
+            "children": [{
+                "name": "Version 3.0.1",
+                "size": 7074
+             }, {
+                "name": "ENABLED",
+                "size": 5731
+             }, {
+                "name": "Framework Version: 2",
+                "size": 5731
+             }, {
+                "name": "Bundled",
+                "size": 5731
+            }]
+        }, {
+            "name": "Streams Inline Actions Plugin",
+            "children": [{
+                "name": "Version 6.4.7",
+                "size": 7074
+             }, {
+                "name": "ENABLED",
+                "size": 5731
+             }, {
+                "name": "Framework Version: 2",
+                "size": 5731
+             }, {
+                "name": "Bundled",
+                "size": 5731
+            }]
+        }, {
+            "name": "Confluence Email Gateway",
+            "children": [{
+                "name": "Version 5.8.8",
+                "size": 7074
+             }, {
+                "name": "ENABLED",
+                "size": 5731
+             }, {
+                "name": "Framework Version: 2",
+                "size": 5731
+             }, {
+                "name": "Bundled",
+                "size": 5731
+            }]
+        }, {
+            "name": "Confluence Document Conversion Library",
+            "children": [{
+                "name": "Version 4.0.10",
+                "size": 7074
+             }, {
+                "name": "ENABLED",
+                "size": 5731
+             }, {
+                "name": "Framework Version: 2",
+                "size": 5731
+             }, {
+                "name": "Bundled",
+                "size": 5731
+            }]
+        }, {
+            "name": "Confluence Email Notifications Plugin",
+            "children": [{
+                "name": "Version 8.11.2",
+                "size": 7074
+             }, {
+                "name": "ENABLED",
+                "size": 5731
+             }, {
+                "name": "Framework Version: 2",
+                "size": 5731
+             }, {
+                "name": "Bundled",
+                "size": 5731
+            }]
+        }, {
+            "name": "Information Macros",
+            "children": [{
+                "name": "Version 4.0.1",
+                "size": 7074
+             }, {
+                "name": "ENABLED",
+                "size": 5731
+             }, {
+                "name": "Framework Version: 2",
+                "size": 5731
+             }, {
+                "name": "Bundled",
+                "size": 5731
+            }]
+        }, {
+            "name": "User Menu Sections",
+            "children": [{
+                "name": "Version 1.0",
+                "size": 7074
+             }, {
+                "name": "ENABLED",
+                "size": 5731
+             }, {
+                "name": "Framework Version: 1",
+                "size": 5731
+             }, {
+                "name": "Provided",
+                "size": 5731
+            }]    
+        }, {
+            "name": "Confluence Link Browser",
+            "children": [{
+                "name": "Version 6.15.2",
+                "size": 7074
+             }, {
+                "name": "ENABLED",
+                "size": 5731
+             }, {
+                "name": "Framework Version: 2",
+                "size": 5731
+             }, {
+                "name": "Bundled",
+                "size": 5731
+            }]    
+        }, {
+            "name": "Space Browse Sections",
+            "children": [{
+                "name": "Version 1.0",
+                "size": 7074
+             }, {
+                "name": "ENABLED",
+                "size": 5731
+             }, {
+                "name": "Framework Version: 1",
+                "size": 5731
+             }, {
+                "name": "Provided",
+                "size": 5731
+            }]    
+        }, {
+            "name": "Space Tools Sections",
+            "children": [{
+                "name": "Version 1,0",
+                "size": 7074
+             }, {
+                "name": "ENABLED",
+                "size": 5731
+             }, {
+                "name": "Framework Version: 1",
+                "size": 5731
+             }, {
+                "name": "Provided",
+                "size": 5731
+            }]    
+        }, {
+            "name": "atlassian-help-tips",
+            "children": [{
+                "name": "Version 2.0.1",
+                "size": 7074
+             }, {
+                "name": "ENABLED",
+                "size": 5731
+             }, {
+                "name": "Framework Version: 2",
+                "size": 5731
+             }, {
+                "name": "Bundled",
+                "size": 5731
+            }]    
+        }, {
+            "name": "Atlassian Gadgets OAuth Service Provider Plugin",
+            "children": [{
+                "name": "Version 4.3.2",
+                "size": 7074
+             }, {
+                "name": "ENABLED",
+                "size": 5731
+             }, {
+                "name": "Framework Version: 2",
+                "size": 5731
+             }, {
+                "name": "Bundled",
+                "size": 5731
+            }]
+        }, {
+            "name": "Confluence Create Content Plugin",
+            "children": [{
+                "name": "Version 9.1.8",
+                "size": 7074
+             }, {
+                "name": "ENABLED",
+                "size": 5731
+             }, {
+                "name": "Framework Version: 2",
+                "size": 5731
+             }, {
+                "name": "Bundled",
+                "size": 5731
+            }]
+        }, {
+            "name": "Confluence Easy-User Admin",
+            "children": [{
+                "name": "Version 8.11.2",
+                "size": 7074
+             }, {
+                "name": "ENABLED",
+                "size": 5731
+             }, {
+                "name": "Framework Version: 2",
+                "size": 5731
+             }, {
+                "name": "Bundled",
+                "size": 5731
+            }]
+        }, {
+            "name": "Default Theme",
+            "children": [{
+                "name": "Version 1.0",
+                "size": 7074
+             }, {
+                "name": "ENABLED",
+                "size": 5731
+             }, {
+                "name": "Framework Version: 1",
+                "size": 5731
+             }, {
+                "name": "Provided",
+                "size": 5731
+            }]
+        }, {
+            "name": "Confluence Live Search Macros Plugin",
+            "children": [{
+                "name": "Version 3.1.1",
+                "size": 7074
+             }, {
+                "name": "ENABLED",
+                "size": 5731
+             }, {
+                "name": "Framework Version: 2",
+                "size": 5731
+             }, {
+                "name": "Bundled",
+                "size": 5731
+            }]
+        }, {
+            "name": "Atlassian XHTML",
+            "children": [{
+                "name": "Version 6.15.2",
+                "size": 7074
+             }, {
+                "name": "ENABLED",
+                "size": 5731
+             }, {
+                "name": "Framework Version: 2",
+                "size": 5731
+             }, {
+                "name": "Bundled",
+                "size": 5731
+            }]
+        }, {
+            "name": "Confluence SAL Plugin",
+            "children": [{
+                "name": "Version 6.15.2",
+                "size": 7074
+             }, {
+                "name": "ENABLED",
+                "size": 5731
+             }, {
+                "name": "Framework Version: 2",
+                "size": 5731
+             }, {
+                "name": "Bundled",
+                "size": 5731
+            }]
+        }, {
+            "name": "Space Pages Sections",
+            "children": [{
+                "name": "Version 1.0",
+                "size": 7074
+             }, {
+                "name": "ENABLED",
+                "size": 5731
+             }, {
+                "name": "Framework Version: 1",
+                "size": 5731
+             }, {
+                "name": "Provided",
+                "size": 5731
+            }]    
+        }, {
+            "name": "Confluence Danish (Denmark) Language Pack",
+            "children": [{
+                "name": "Version 6.15.0.rc1-20190311231818",
+                "size": 7074
+             }, {
+                "name": "ENABLED",
+                "size": 5731
+             }, {
+                "name": "Framework Version: 2",
+                "size": 5731
+             }, {
+                "name": "Bundled",
+                "size": 5731
+            }]
+        }, {
+            "name": "Synchrony Interop Bootstrap Plugin",
+            "children": [{
+                "name": "Version 6.15.2",
+                "size": 7074
+             }, {
+                "name": "ENABLED",
+                "size": 5731
+             }, {
+                "name": "Framework Version: 2",
+                "size": 5731
+             }, {
+                "name": "Bundled",
+                "size": 5731
+            }]
+        }, {
+            "name": "Confluence GraphQL Providers",
+            "children": [{
+                "name": "Version 6.15.2",
+                "size": 7074
+             }, {
+                "name": "ENABLED",
+                "size": 5731
+             }, {
+                "name": "Framework Version: 2",
+                "size": 5731
+             }, {
+                "name": "Bundled",
+                "size": 5731
+            }]   
+        }, {
+            "name": "News Tabs",
+            "children": [{
+                "name": "Version 1.0",
+                "size": 7074
+             }, {
+                "name": "ENABLED",
+                "size": 5731
+             }, {
+                "name": "Framework Version: 1",
+                "size": 5731
+             }, {
+                "name": "Provided",
+                "size": 5731
+            }]
+        }, {
+            "name": "Confluence Russian (Russia) Language Pack",
+            "children": [{
+                "name": "Version 6.15.0",
+                "size": 7074
+             }, {
+                "name": "ENABLED",
+                "size": 5731
+             }, {
+                "name": "Framework Version: 2",
+                "size": 5731
+             }, {
+                "name": "Bundled",
+                "size": 5731
+            }]
+        }, {
+            "name": "Confluence Editor Plugin",
+            "children": [{
+                "name": "Version 6.15.2",
+                "size": 7074
+             }, {
+                "name": "ENABLED",
+                "size": 5731
+             }, {
+                "name": "Framework Version: 2",
+                "size": 5731
+             }, {
+                "name": "Bundled",
+                "size": 5731
+            }]
+        }, {
+            "name": "Page Properties Macros - Plugin",
+            "children": [{
+                "name": "Version 5.1.3",
+                "size": 7074
+             }, {
+                "name": "ENABLED",
+                "size": 5731
+             }, {
+                "name": "Framework Version: 2",
+                "size": 5731
+             }, {
+                "name": "Bundled",
+                "size": 5731
+            }]
+        }, {
+            "name": "Recently Viewed Plugin",
+            "children": [{
+                "name": "Version 7.0.1",
+                "size": 7074
+             }, {
+                "name": "ENABLED",
+                "size": 5731
+             }, {
+                "name": "Framework Version: 2",
+                "size": 5731
+             }, {
+                "name": "Bundled",
+                "size": 5731
+            }]
+        }, {
+            "name": "Confluence Look And Feel Logo Plugin",
+            "children": [{
+                "name": "Version 6.15.2",
+                "size": 7074
+             }, {
+                "name": "ENABLED",
+                "size": 5731
+             }, {
+                "name": "Framework Version: 2",
+                "size": 5731
+             }, {
+                "name": "Bundled",
+                "size": 5731
+            }]
+        }, {
+            "name": "Confluence Template Plugin",
+            "children": [{
+                "name": "Version 6.15.2",
+                "size": 7074
+             }, {
+                "name": "ENABLED",
+                "size": 5731
+             }, {
+                "name": "Framework Version: 2",
+                "size": 5731
+             }, {
+                "name": "Bundled",
+                "size": 5731
+            }]
+        }, {
+            "name": "Atlassian Plugins - Web Resources - Implementation Plugin",
+            "children": [{
+                "name": "Version 3.5.19-ac3d947",
+                "size": 7074
+             }, {
+                "name": "ENABLED",
+                "size": 5731
+             }, {
+                "name": "Framework Version: 3",
+                "size": 5731
+             }, {
+                "name": "Bundled",
+                "size": 5731
+            }]
+        }, {
+            "name": "Attachment Actions",
+            "children": [{
+                "name": "Version 1.0",
+                "size": 7074
+             }, {
+                "name": "ENABLED",
+                "size": 5731
+             }, {
+                "name": "Framework Version: 1",
+                "size": 5731
+             }, {
+                "name": "Provided",
+                "size": 5731
+            }]
+        }, {
+            "name": "Confluence Contributors Plugin",
+            "children": [{
+                "name": "Version 3.1.0",
+                "size": 7074
+             }, {
+                "name": "ENABLED",
+                "size": 5731
+             }, {
+                "name": "Framework Version: 2",
+                "size": 5731
+             }, {
+                "name": "Bundled",
+                "size": 5731
+            }]
+        }, {
+            "name": "Confluence Jira Metadata Plugin",
+            "children": [{
+                "name": "Version 3.0.2",
+                "size": 7074
+             }, {
+                "name": "ENABLED",
+                "size": 5731
+             }, {
+                "name": "Framework Version: 2",
+                "size": 5731
+             }, {
+                "name": "Bundled",
+                "size": 5731
+            }]
+        }, {
+            "name": "Crowd System Password Encoders",
+            "children": [{
+                "name": "Version 1.0",
+                "size": 7074
+             }, {
+                "name": "ENABLED",
+                "size": 5731
+             }, {
+                "name": "Framework Version: 1",
+                "size": 5731
+             }, {
+                "name": "Provided",
+                "size": 5731
+            }]
+        }, {
+            "name": "Atlassian UI Plugin",
+            "children": [{
+                "name": "Version 7.9.7",
+                "size": 7074
+             }, {
+                "name": "ENABLED",
+                "size": 5731
+             }, {
+                "name": "Framework Version: 2",
+                "size": 5731
+             }, {
+                "name": "Bundled",
+                "size": 5731
+            }]
+        }, {
+            "name": "Atlassian HealthCheck Common Module",
+            "children": [{
+                "name": "Version 5.0.0",
+                "size": 7074
+             }, {
+                "name": "ENABLED",
+                "size": 5731
+             }, {
+                "name": "Framework Version: 2",
+                "size": 5731
+             }, {
+                "name": "Bundled",
+                "size": 5731
+            }]    
+        }, {
+            "name": "confluence-icons",
+            "children": [{
+                "name": "Version 1.0.9",
+                "size": 7074
+             }, {
+                "name": "ENABLED",
+                "size": 5731
+             }, {
+                "name": "Framework Version: 2",
+                "size": 5731
+             }, {
+                "name": "Bundled",
+                "size": 5731
+            }]    
+        }, {
+            "name": "Workbox - Common Plugin",
+            "children": [{
+                "name": "Version 7.0.3",
+                "size": 7074
+             }, {
+                "name": "ENABLED",
+                "size": 5731
+             }, {
+                "name": "Framework Version: 2",
+                "size": 5731
+             }, {
+                "name": "Bundled",
+                "size": 5731
+            }]    
+        }, {
+            "name": "Confluence Watch Button",
+            "children": [{
+                "name": "Version 4.0.4",
+                "size": 7074
+             }, {
+                "name": "ENABLED",
+                "size": 5731
+             }, {
+                "name": "Framework Version: 2",
+                "size": 5731
+             }, {
+                "name": "Bundled",
+                "size": 5731
+            }]
+        }, {
+            "name": "Confluence and Jira Content Connector",
+            "children": [{
+                "name": "Version 3.0.4",
+                "size": 7074
+             }, {
+                "name": "ENABLED",
+                "size": 5731
+             }, {
+                "name": "Framework Version: 2",
+                "size": 5731
+             }, {
+                "name": "Bundled",
+                "size": 5731
+            }]
+        }, {
+            "name": "Status Macro",
+            "children": [{
+                "name": "Version 3.0.4",
+                "size": 7074
+             }, {
+                "name": "ENABLED",
+                "size": 5731
+             }, {
+                "name": "Framework Version: 2",
+                "size": 5731
+             }, {
+                "name": "Bundled",
+                "size": 5731
+            }]
+        }, {
+            "name": "System Web Panels",
+            "children": [{
+                "name": "Version 1.0",
+                "size": 7074
+             }, {
+                "name": "ENABLED",
+                "size": 5731
+             }, {
+                "name": "Framework Version: 1",
+                "size": 5731
+             }, {
+                "name": "Provided",
+                "size": 5731
+            }]
+        }, {
+            "name": "Confluence Restrictions Dialog",
+            "children": [{
+                "name": "Version 6.15.2",
+                "size": 7074
+             }, {
+                "name": "ENABLED",
+                "size": 5731
+             }, {
+                "name": "Framework Version: 2",
+                "size": 5731
+             }, {
+                "name": "Bundled",
+                "size": 5731
+            }]
+        }, {
+            "name": "Confluence REST API Resources",
+            "children": [{
+                "name": "Version 6.15.2",
+                "size": 7074
+             }, {
+                "name": "ENABLED",
+                "size": 5731
+             }, {
+                "name": "Framework Version: 2",
+                "size": 5731
+             }, {
+                "name": "Bundled",
+                "size": 5731
+            }]
+        }, {
+            "name": "Did You Mean Index Building Interface",
+            "children": [{
+                "name": "Version 1.0",
+                "size": 7074
+             }, {
+                "name": "ENABLED",
+                "size": 5731
+             }, {
+                "name": "Framework Version: 1",
+                "size": 5731
+             }, {
+                "name": "Provided",
+                "size": 5731
+            }]
+        }, {
+            "name": "Profile Tabs",
+            "children": [{
+                "name": "Version 1.0",
+                "size": 7074
+             }, {
+                "name": "ENABLED",
+                "size": 5731
+             }, {
+                "name": "Framework Version: 1",
+                "size": 5731
+             }, {
+                "name": "Provided",
+                "size": 5731
+            }]
+        }, {
+            "name": "Atlassian Soy - Plugin",
+            "children": [{
+                "name": "Version 4.5.0",
+                "size": 7074
+             }, {
+                "name": "ENABLED",
+                "size": 5731
+             }, {
+                "name": "Framework Version: 3",
+                "size": 5731
+             }, {
+                "name": "Bundled",
+                "size": 5731
+            }]
+        }, {
+            "name": "Atlassian OAuth Consumer SAL SPI Implementation",
+            "children": [{
+                "name": "Version 4.0.0",
+                "size": 7074
+             }, {
+                "name": "ENABLED",
+                "size": 5731
+             }, {
+                "name": "Framework Version: 2",
+                "size": 5731
+             }, {
+                "name": "Bundled",
+                "size": 5731
+            }]
+        }, {
+            "name": "Confluence Space IA Plugin",
+            "children": [{
+                "name": "Version 15.0.10",
+                "size": 7074
+             }, {
+                "name": "ENABLED",
+                "size": 5731
+             }, {
+                "name": "Framework Version: 2",
+                "size": 5731
+             }, {
+                "name": "Bundled",
+                "size": 5731
+            }]    
+        }, {
+            "name": "Confluence Japanese (Japan) Language Pack",
+            "children": [{
+                "name": "Version 0.15",
+                "size": 7074
+             }, {
+                "name": "ENABLED",
+                "size": 5731
+             }, {
+                "name": "Framework Version: 2",
+                "size": 5731
+             }, {
+                "name": "Bundled",
+                "size": 5731
+            }]    
+        }, {
+            "name": "Gadgets Plugin SPI",
+            "children": [{
+                "name": "Version 9.0.3",
+                "size": 7074
+             }, {
+                "name": "ENABLED",
+                "size": 5731
+             }, {
+                "name": "Framework Version: 2",
+                "size": 5731
+             }, {
+                "name": "Bundled",
+                "size": 5731
+            }]    
+        }, {
+            "name": "Wiki Renderer Components",
+            "children": [{
+                "name": "Version 1.0",
+                "size": 7074
+             }, {
+                "name": "ENABLED",
+                "size": 5731
+             }, {
+                "name": "Framework Version: 1",
+                "size": 5731
+             }, {
+                "name": "Provided",
+                "size": 5731
+            }]    
+        }, {
+            "name": "Core Filters",
+            "children": [{
+                "name": "Version 1.0",
+                "size": 7074
+             }, {
+                "name": "ENABLED",
+                "size": 5731
+             }, {
+                "name": "Framework Version: 1",
+                "size": 5731
+             }, {
+                "name": "Provided",
+                "size": 5731
+            }]    
+        }, {
+            "name": "Confluence Core Macros",
+            "children": [{
+                "name": "Version 6.15.2",
+                "size": 7074
+             }, {
+                "name": "ENABLED",
+                "size": 5731
+             }, {
+                "name": "Framework Version: 2",
+                "size": 5731
+             }, {
+                "name": "Bundled",
+                "size": 5731
+            }]    
+        }, {
+            "name": "Applinks - Plugin - Core",
+            "children": [{
+                "name": "Version 5.4.12",
+                "size": 7074
+             }, {
+                "name": "ENABLED",
+                "size": 5731
+             }, {
+                "name": "Framework Version: 2",
+                "size": 5731
+             }, {
+                "name": "Bundled",
+                "size": 5731
+            }]    
+        }, {
+            "name": "Confluence Mentions Plugin",
+            "children": [{
+                "name": "Version 3.1.15",
+                "size": 7074
+             }, {
+                "name": "ENABLED",
+                "size": 5731
+             }, {
+                "name": "Framework Version: 2",
+                "size": 5731
+             }, {
+                "name": "Bundled",
+                "size": 5731
+            }]    
+        }, {
+            "name": "Confluence Slovak (Slovakia) Language Pack",
+            "children": [{
+                "name": "Version 6.15.0.rc1-20190311231818",
+                "size": 7074
+             }, {
+                "name": "ENABLED",
+                "size": 5731
+             }, {
+                "name": "Framework Version: 2",
+                "size": 5731
+             }, {
+                "name": "Bundled",
+                "size": 5731
+            }]    
+        }, {
+            "name": "Analytics Jobs Framework",
+            "children": [{
+                "name": "Version 6.15.2",
+                "size": 7074
+             }, {
+                "name": "ENABLED",
+                "size": 5731
+             }, {
+                "name": "Framework Version: 2",
+                "size": 5731
+             }, {
+                "name": "Bundled",
+                "size": 5731
+            }]    
+        }, {
+            "name": "Confluence Fixed Headers",
+            "children": [{
+                "name": "Version 1.4.0",
+                "size": 7074
+             }, {
+                "name": "ENABLED",
+                "size": 5731
+             }, {
+                "name": "Framework Version: 2",
+                "size": 5731
+             }, {
+                "name": "Bundled",
+                "size": 5731
+            }]    
+        }, {
+            "name": "Confluence Spanish (Spain) Language Pack",
+            "children": [{
+                "name": "Version 6.15.0.rc1-20190311231818",
+                "size": 7074
+             }, {
+                "name": "ENABLED",
+                "size": 5731
+             }, {
+                "name": "Framework Version: 2",
+                "size": 5731
+             }, {
+                "name": "Bundled",
+                "size": 5731
+            }]    
+        }, {
+            "name": "Confluence Korean (South Korea) Language Pack",
+            "children": [{
+                "name": "Version 6.15.0.rc1-20190311231818",
+                "size": 7074
+             }, {
+                "name": "ENABLED",
+                "size": 5731
+             }, {
+                "name": "Framework Version: 2",
+                "size": 5731
+             }, {
+                "name": "Bundled",
+                "size": 5731
+            }]    
+        }, {
+            "name": "Confluence User Avatar Uploader Plugin",
+            "children": [{
+                "name": "Version 2.0.4",
+                "size": 7074
+             }, {
+                "name": "ENABLED",
+                "size": 5731
+             }, {
+                "name": "Framework Version: 2",
+                "size": 5731
+             }, {
+                "name": "Bundled",
+                "size": 5731
+            }]    
+        }, {
+            "name": "Analytics Whitelist Plugin",
+            "children": [{
+                "name": "Version 3.72",
+                "size": 7074
+             }, {
+                "name": "ENABLED",
+                "size": 5731
+             }, {
+                "name": "Framework Version: 2",
+                "size": 5731
+             }, {
+                "name": "Bundled",
+                "size": 5731
+            }]    
+        }, {
+            "name": "Editor Actions",
+            "children": [{
+                "name": "Version 1.0",
+                "size": 7074
+             }, {
+                "name": "ENABLED",
+                "size": 5731
+             }, {
+                "name": "Framework Version: 1",
+                "size": 5731
+             }, {
+                "name": "Provided",
+                "size": 5731
+            }]    
+        }, {
+            "name": "Confluence HTML Macros",
+            "children": [{
+                "name": "Version 3.0.2",
+                "size": 7074
+             }, {
+                "name": "ENABLED",
+                "size": 5731
+             }, {
+                "name": "Framework Version: 2",
+                "size": 5731
+             }, {
+                "name": "Bundled",
+                "size": 5731
+            }]    
+        }, {
+            "name": "Confluence Like Plugin",
+            "children": [{
+                "name": "Version 6.15.2",
+                "size": 7074
+             }, {
+                "name": "ENABLED",
+                "size": 5731
+             }, {
+                "name": "Framework Version: 2",
+                "size": 5731
+             }, {
+                "name": "Bundled",
+                "size": 5731
+            }]    
+        }, {
+            "name": "Confluence Notifications SPI Plugin",
+            "children": [{
+                "name": "Version 8.11.2",
+                "size": 7074
+             }, {
+                "name": "ENABLED",
+                "size": 5731
+             }, {
+                "name": "Framework Version: 2",
+                "size": 5731
+             }, {
+                "name": "Bundled",
+                "size": 5731
+            }]    
+        }, {
+            "name": "Page Operations",
+            "children": [{
+                "name": "Version 1.0",
+                "size": 7074
+             }, {
+                "name": "ENABLED",
+                "size": 5731
+             }, {
+                "name": "Framework Version: 1",
+                "size": 5731
+             }, {
+                "name": "Provided",
+                "size": 5731
+            }]  
+        }, {
+            "name": "Share Page",
+            "children": [{
+                "name": "Version 8.0.5",
+                "size": 7074
+             }, {
+                "name": "ENABLED",
+                "size": 5731
+             }, {
+                "name": "Framework Version: 2",
+                "size": 5731
+             }, {
+                "name": "Bundled",
+                "size": 5731
+            }]    
+        }, {
+            "name": "Confluence Swedish (Sweden) Language Pack",
+            "children": [{
+                "name": "Version 6.15.0.rc1-20190311231818",
+                "size": 7074
+             }, {
+                "name": "ENABLED",
+                "size": 5731
+             }, {
+                "name": "Framework Version: 2",
+                "size": 5731
+             }, {
+                "name": "Bundled",
+                "size": 5731
+            }]    
+        }, {
+            "name": "Applinks - Plugin - Basic Authentication",
+            "children": [{
+                "name": "Version 5.4.12",
+                "size": 7074
+             }, {
+                "name": "ENABLED",
+                "size": 5731
+             }, {
+                "name": "Framework Version: 2",
+                "size": 5731
+             }, {
+                "name": "Bundled",
+                "size": 5731
+            }]    
+        }, {
+            "name": "JIRA Integration :: Plugin",
+            "children": [{
+                "name": "Version 3.0.2",
+                "size": 7074
+             }, {
+                "name": "ENABLED",
+                "size": 5731
+             }, {
+                "name": "Framework Version: 2",
+                "size": 5731
+             }, {
+                "name": "Bundled",
+                "size": 5731
+            }]    
+        }, {
+            "name": "Confluence Romanian (Romania) Language Pack",
+            "children": [{
+                "name": "Version 6.15.0.rc1-20190311231818",
+                "size": 7074
+             }, {
+                "name": "ENABLED",
+                "size": 5731
+             }, {
+                "name": "Framework Version: 2",
+                "size": 5731
+             }, {
+                "name": "Bundled",
+                "size": 5731
+            }]     
+        }, {
+            "name": "Global Header Image Links",
+            "children": [{
+                "name": "Version 1.0",
+                "size": 7074
+             }, {
+                "name": "ENABLED",
+                "size": 5731
+             }, {
+                "name": "Framework Version: 1",
+                "size": 5731
+             }, {
+                "name": "Provided",
+                "size": 5731
+            }] 
+        }, {
+            "name": "Confluence Keyboard Shortcuts Plugin",
+            "children": [{
+                "name": "Version 6.15.2",
+                "size": 7074
+             }, {
+                "name": "ENABLED",
+                "size": 5731
+             }, {
+                "name": "Framework Version: 2",
+                "size": 5731
+             }, {
+                "name": "Bundled",
+                "size": 5731
+            }]     
+        }, {
+            "name": "Confluence Feature Discovery Plugin",
+            "children": [{
+                "name": "Version 1.10.10",
+                "size": 7074
+             }, {
+                "name": "ENABLED",
+                "size": 5731
+             }, {
+                "name": "Framework Version: 2",
+                "size": 5731
+             }, {
+                "name": "Bundled",
+                "size": 5731
+            }] 
+        }, {
+            "name": "Administration Menu Items",
+            "children": [{
+                "name": "Version 1.0",
+                "size": 7074
+             }, {
+                "name": "ENABLED",
+                "size": 5731
+             }, {
+                "name": "Framework Version: 1",
+                "size": 5731
+             }, {
+                "name": "Provided",
+                "size": 5731
+            }] 
+        }, {
+            "name": "System Web Components",
+            "children": [{
+                "name": "Version 1.0",
+                "size": 7074
+             }, {
+                "name": "ENABLED",
+                "size": 5731
+             }, {
+                "name": "Framework Version: 1",
+                "size": 5731
+             }, {
+                "name": "Provided",
+                "size": 5731
+            }]     
+        }, {
+            "name": "Atlassian OAuth Service Provider SPI",
+            "children": [{
+                "name": "Version 4.0.0",
+                "size": 7074
+             }, {
+                "name": "ENABLED",
+                "size": 5731
+             }, {
+                "name": "Framework Version: 2",
+                "size": 5731
+             }, {
+                "name": "Bundled",
+                "size": 5731
+            }] 
+        }, {
+            "name": "Space Admin Sections",
+            "children": [{
+                "name": "Version 1.0",
+                "size": 7074
+             }, {
+                "name": "ENABLED",
+                "size": 5731
+             }, {
+                "name": "Framework Version: 1",
+                "size": 5731
+             }, {
+                "name": "Provided",
+                "size": 5731
+            }] 
+        }, {
+            "name": "Document Conversion Library",
+            "children": [{
+                "name": "Version 2.0.11",
+                "size": 7074
+             }, {
+                "name": "ENABLED",
+                "size": 5731
+             }, {
+                "name": "Framework Version: 2",
+                "size": 5731
+             }, {
+                "name": "Bundled",
+                "size": 5731
+            }] 
+        }, {
+            "name": "Chart Plugin",
+            "children": [{
+                "name": "Version 3.0.4",
+                "size": 7074
+             }, {
+                "name": "ENABLED",
+                "size": 5731
+             }, {
+                "name": "Framework Version: 2",
+                "size": 5731
+             }, {
+                "name": "Bundled",
+                "size": 5731
+            }]     
+        }, {
+            "name": "Confluence Chinese (China) Language Pack",
+            "children": [{
+                "name": "Version 6.15.0.rc1-20190311231818",
+                "size": 7074
+             }, {
+                "name": "ENABLED",
+                "size": 5731
+             }, {
+                "name": "Framework Version: 2",
+                "size": 5731
+             }, {
+                "name": "Bundled",
+                "size": 5731
+            }] 
+        }, {
+            "name": "Confluence Reliable Save Plugin",
+            "children": [{
+                "name": "Version 6.15.2",
+                "size": 7074
+             }, {
+                "name": "ENABLED",
+                "size": 5731
+             }, {
+                "name": "Framework Version: 2",
+                "size": 5731
+             }, {
+                "name": "Bundled",
+                "size": 5731
+            }] 
+        }, {
+            "name": "Profile Macros",
+            "children": [{
+                "name": "Version 1.0",
+                "size": 7074
+             }, {
+                "name": "ENABLED",
+                "size": 5731
+             }, {
+                "name": "Framework Version: 1",
+                "size": 5731
+             }, {
+                "name": "Provided",
+                "size": 5731
+            }] 
+        }, {
+            "name": "Applinks - Plugin - Trusted Apps",
+            "children": [{
+                "name": "Version 4.0.4",
+                "size": 7074
+             }, {
+                "name": "ENABLED",
+                "size": 5731
+             }, {
+                "name": "Framework Version: 2",
+                "size": 5731
+             }, {
+                "name": "Bundled",
+                "size": 5731
+            }] 
+        }, {
+            "name": "User Menu Sections",
+            "children": [{
+                "name": "Version 1.0",
+                "size": 7074
+             }, {
+                "name": "ENABLED",
+                "size": 5731
+             }, {
+                "name": "Framework Version: 1",
+                "size": 5731
+             }, {
+                "name": "Provided",
+                "size": 5731
+            }]     
+        }, {
+            "name": "Streams SPI",
+            "children": [{
+                "name": "Version 6.4.7",
+                "size": 7074
+             }, {
+                "name": "ENABLED",
+                "size": 5731
+             }, {
+                "name": "Framework Version: 2",
+                "size": 5731
+             }, {
+                "name": "Bundled",
+                "size": 5731
+            }] }, {
+            "name": "Confluence Labels UI",
+            "children": [{
+                "name": "Version 6.15.2",
+                "size": 7074
+             }, {
+                "name": "ENABLED",
+                "size": 5731
+             }, {
+                "name": "Framework Version: 2",
+                "size": 5731
+             }, {
+                "name": "Bundled",
+                "size": 5731
+            }] }, {
+            "name": "Confluence Scheduled Job Administration UI",
+            "children": [{
+                "name": "Version 6.15.2",
+                "size": 7074
+             }, {
+                "name": "ENABLED",
+                "size": 5731
+             }, {
+                "name": "Framework Version: 2",
+                "size": 5731
+             }, {
+                "name": "Bundled",
+                "size": 5731
+            }] }, {
+            "name": "Atlassian JWT Plugin",
+            "children": [{
+                "name": "Version 1.4.1",
+                "size": 7074
+             }, {
+                "name": "ENABLED",
+                "size": 5731
+             }, {
+                "name": "Framework Version: 2",
+                "size": 5731
+             }, {
+                "name": "Bundled",
+                "size": 5731
+            }] }, {
+            "name": "View Profile Web Interface",
+            "children": [{
+                "name": "Version 1.0",
+                "size": 7074
+             }, {
+                "name": "ENABLED",
+                "size": 5731
+             }, {
+                "name": "Framework Version: 1",
+                "size": 5731
+             }, {
+                "name": "Provided",
+                "size": 5731
+            }] }, {
+            "name": "Confluence Cache Management Plugin",
+            "children": [{
+                "name": "Version 3.0.2",
+                "size": 7074
+             }, {
+                "name": "ENABLED",
+                "size": 5731
+             }, {
+                "name": "Framework Version: 2",
+                "size": 5731
+             }, {
+                "name": "Bundled",
+                "size": 5731
+            }]     
+        }, {
+            "name": "Sticky Table Headers",
+            "children": [{
+                "name": "Version 2.0.0",
+                "size": 7074
+             }, {
+                "name": "ENABLED",
+                "size": 5731
+             }, {
+                "name": "Framework Version: 2",
+                "size": 5731
+             }, {
+                "name": "Bundled",
+                "size": 5731
+            }] }, {
+            "name": "Applinks - Plugin - CORS",
+            "children": [{
+                "name": "Version 5.4.12",
+                "size": 7074
+             }, {
+                "name": "ENABLED",
+                "size": 5731
+             }, {
+                "name": "Framework Version: 2",
+                "size": 5731
+             }, {
+                "name": "Bundled",
+                "size": 5731
+            }] 
+        }, {
+            "name": "Confluence REST Navigation Service",
+            "children": [{
+                "name": "Version 6.15.2",
+                "size": 7074
+             }, {
+                "name": "ENABLED",
+                "size": 5731
+             }, {
+                "name": "Framework Version: 2",
+                "size": 5731
+             }, {
+                "name": "Bundled",
+                "size": 5731
+            }] 
+        }, {
+            "name": "Streams Third Party Provider Plugin",
+            "children": [{
+                "name": "Version 6.4.7",
+                "size": 7074
+             }, {
+                "name": "ENABLED",
+                "size": 5731
+             }, {
+                "name": "Framework Version: 2",
+                "size": 5731
+             }, {
+                "name": "Bundled",
+                "size": 5731
+            }] 
+        }, {
+            "name": "Confluence Quicknav",
+            "children": [{
+                "name": "Version 6.15.2",
+                "size": 7074
+             }, {
+                "name": "ENABLED",
+                "size": 5731
+             }, {
+                "name": "Framework Version: 2",
+                "size": 5731
+             }, {
+                "name": "Bundled",
+                "size": 5731
+            }] 
+        }, {
+            "name": "Atlassian OAuth Service Provider Plugin",
+            "children": [{
+                "name": "Version 4.0.0",
+                "size": 7074
+             }, {
+                "name": "ENABLED",
+                "size": 5731
+             }, {
+                "name": "Framework Version: 2",
+                "size": 5731
+             }, {
+                "name": "Bundled",
+                "size": 5731
+            }] 
+        }, {
+            "name": "Atlassian Instrumentation JMX plugin",
+            "children": [{
+                "name": "Version 2.2.3",
+                "size": 7074
+             }, {
+                "name": "ENABLED",
+                "size": 5731
+             }, {
+                "name": "Framework Version: 2",
+                "size": 5731
+             }, {
+                "name": "Bundled",
+                "size": 5731
+            }]     
+        }, {
+            "name": "Confluence Finnish (Finland) Language Pack",
+            "children": [{
+                "name": "Version 6.15.0.rc1-20190311231818",
+                "size": 7074
+             }, {
+                "name": "ENABLED",
+                "size": 5731
+             }, {
+                "name": "Framework Version: 2",
+                "size": 5731
+             }, {
+                "name": "Bundled",
+                "size": 5731
+            }] 
+        }, {
+            "name": "Confluence License Banner",
+            "children": [{
+                "name": "Version 2.0.3",
+                "size": 7074
+             }, {
+                "name": "ENABLED",
+                "size": 5731
+             }, {
+                "name": "Framework Version: 2",
+                "size": 5731
+             }, {
+                "name": "Bundled",
+                "size": 5731
+            }] 
+        }, {
+            "name": "Embedded Gadgets Plugin",
+            "children": [{
+                "name": "Version 4.3.2",
+                "size": 7074
+             }, {
+                "name": "ENABLED",
+                "size": 5731
+             }, {
+                "name": "Framework Version: 2",
+                "size": 5731
+             }, {
+                "name": "Bundled",
+                "size": 5731
+            }] 
+        }, {
+            "name": "Confluence Search Plugin",
+            "children": [{
+                "name": "Version 3.3.1",
+                "size": 7074
+             }, {
+                "name": "ENABLED",
+                "size": 5731
+             }, {
+                "name": "Framework Version: 2",
+                "size": 5731
+             }, {
+                "name": "Bundled",
+                "size": 5731
+            }] 
+        }, {
+            "name": "Help Menu Items",
+            "children": [{
+                "name": "Version 3.3.1",
+                "size": 7074
+             }, {
+                "name": "ENABLED",
+                "size": 5731
+             }, {
+                "name": "Framework Version: 2",
+                "size": 5731
+             }, {
+                "name": "Bundled",
+                "size": 5731
+            }] 
+        }, {
+            "name": "Space Advanced Sections",
+            "children": [{
+                "name": "Version 1.0",
+                "size": 7074
+             }, {
+                "name": "ENABLED",
+                "size": 5731
+             }, {
+                "name": "Framework Version: 1",
+                "size": 5731
+             }, {
+                "name": "Provided",
+                "size": 5731
+            }] 
+        }, {
+            "name": "Streams Plugin",
+            "children": [{
+                "name": "Version 6.4.7",
+                "size": 7074
+             }, {
+                "name": "ENABLED",
+                "size": 5731
+             }, {
+                "name": "Framework Version: 2",
+                "size": 5731
+             }, {
+                "name": "Bundled",
+                "size": 5731
+            }] }, {
+            "name": "Confluence JSON-RPC Plugin",
+            "children": [{
+                "name": "Version 2.1.0",
+                "size": 7074
+             }, {
+                "name": "ENABLED",
+                "size": 5731
+             }, {
+                "name": "Framework Version: 2",
+                "size": 5731
+             }, {
+                "name": "Bundled",
+                "size": 5731
+            }]     
+        }, {
+            "name": "Atlassian OAuth Service Provider SAL SPI Implementation",
+            "children": [{
+                "name": "Version 4.0.0",
+                "size": 7074
+             }, {
+                "name": "ENABLED",
+                "size": 5731
+             }, {
+                "name": "Framework Version: 2",
+                "size": 5731
+             }, {
+                "name": "Bundled",
+                "size": 5731
+            }] 
+        }, {
+            "name": "Atlassian Whitelist Core Plugin",
+            "children": [{
+                "name": "Version 3.0.2",
+                "size": 7074
+             }, {
+                "name": "ENABLED",
+                "size": 5731
+             }, {
+                "name": "Framework Version: 2",
+                "size": 5731
+             }, {
+                "name": "Bundled",
+                "size": 5731
+            }] 
+        }, {
+            "name": "Confluence Default Space Content Plugin",
+            "children": [{
+                "name": "Version 1.4",
+                "size": 7074
+             }, {
+                "name": "ENABLED",
+                "size": 5731
+             }, {
+                "name": "Framework Version: 2",
+                "size": 5731
+             }, {
+                "name": "Bundled",
+                "size": 5731
+            }] 
+        }, {
+            "name": "Confluence Dashboard Plugin",
+            "children": [{
+                "name": "Version 2.1.3",
+                "size": 7074
+             }, {
+                "name": "ENABLED",
+                "size": 5731
+             }, {
+                "name": "Framework Version: 2",
+                "size": 5731
+             }, {
+                "name": "Bundled",
+                "size": 5731
+            }] 
+        }, {
+            "name": "Confluence User Rest",
+            "children": [{
+                "name": "Version 6.15.2",
+                "size": 7074
+             }, {
+                "name": "ENABLED",
+                "size": 5731
+             }, {
+                "name": "Framework Version: 2",
+                "size": 5731
+             }, {
+                "name": "Bundled",
+                "size": 5731
+            }] 
+        }, {
+            "name": "System Templates",
+            "children": [{
+                "name": "Version 6.15.2",
+                "size": 7074
+             }, {
+                "name": "ENABLED",
+                "size": 5731
+             }, {
+                "name": "Framework Version: 2",
+                "size": 5731
+             }, {
+                "name": "Bundled",
+                "size": 5731
+            }] 
+        }, {
+            "name": "ICU4J",
+            "children": [{
+                "name": "Version 3.8.0.1",
+                "size": 7074
+             }, {
+                "name": "ENABLED",
+                "size": 5731
+             }, {
+                "name": "Framework Version: 2",
+                "size": 5731
+             }, {
+                "name": "Bundled",
+                "size": 5731
+            }] 
+        }, {
+            "name": "Streams Core Plugin",
+            "children": [{
+                "name": "Version 6.4.7",
+                "size": 7074
+             }, {
+                "name": "ENABLED",
+                "size": 5731
+             }, {
+                "name": "Framework Version: 2",
+                "size": 5731
+             }, {
+                "name": "Bundled",
+                "size": 5731
+            }] 
+        }, {
+            "name": "ImageEffectsPlugin",
+            "children": [{
+                "name": "Version 2.0.4",
+                "size": 7074
+             }, {
+                "name": "ENABLED",
+                "size": 5731
+             }, {
+                "name": "Framework Version: 2",
+                "size": 5731
+             }, {
+                "name": "Bundled",
+                "size": 5731
+            }]     
+        }, {
+            "name": "confluence-browser-metrics",
+            "children": [{
+                "name": "Version 2.1.0",
+                "size": 7074
+             }, {
+                "name": "ENABLED",
+                "size": 5731
+             }, {
+                "name": "Framework Version: 2",
+                "size": 5731
+             }, {
+                "name": "Bundled",
+                "size": 5731
+            }] 
+        }, {
+            "name": "Content Buttons",
+            "children": [{
+                "name": "Version 1.0",
+                "size": 7074
+             }, {
+                "name": "ENABLED",
+                "size": 5731
+             }, {
+                "name": "Framework Version: 1",
+                "size": 5731
+             }, {
+                "name": "Provided",
+                "size": 5731
+            }] 
+        }, {
+            "name": "Confluence Attachments Plugin",
+            "children": [{
+                "name": "Version 7.0.1",
+                "size": 7074
+             }, {
+                "name": "ENABLED",
+                "size": 5731
+             }, {
+                "name": "Framework Version: 2",
+                "size": 5731
+             }, {
+                "name": "Bundled",
+                "size": 5731
+            }] 
+        }, {
+            "name": "Confluence Estonian (Estonia) Language Pack",
+            "children": [{
+                "name": "Version 6.15.0.rc1-20190311231818",
+                "size": 7074
+             }, {
+                "name": "ENABLED",
+                "size": 5731
+             }, {
+                "name": "Framework Version: 2",
+                "size": 5731
+             }, {
+                "name": "Bundled",
+                "size": 5731
+            }] 
+        }, {
+            "name": "Confluence Software Project Blueprint",
+            "children": [{
+                "name": "Version 2.0.7",
+                "size": 7074
+             }, {
+                "name": "ENABLED",
+                "size": 5731
+             }, {
+                "name": "Framework Version: 2",
+                "size": 5731
+             }, {
+                "name": "Bundled",
+                "size": 5731
+            }] 
+        }, {
+            "name": "Confluence Source Editor",
+            "children": [{
+                "name": "Version 1.1.3",
+                "size": 7074
+             }, {
+                "name": "ENABLED",
+                "size": 5731
+             }, {
+                "name": "Framework Version: 2",
+                "size": 5731
+             }, {
+                "name": "User Installed",
+                "size": 5731
+            }] 
+        }, {
+            "name": "Gadget Directory Plugin",
+            "children": [{
+                "name": "Version 4.3.2",
+                "size": 7074
+             }, {
+                "name": "ENABLED",
+                "size": 5731
+             }, {
+                "name": "Framework Version: 2",
+                "size": 5731
+             }, {
+                "name": "Bundled",
+                "size": 5731
+            }] 
+        }, {
+            "name": "Space Export Web Interface",
+            "children": [{
+                "name": "Version 1.0",
+                "size": 7074
+             }, {
+                "name": "ENABLED",
+                "size": 5731
+             }, {
+                "name": "Framework Version: 1",
+                "size": 5731
+             }, {
+                "name": "Provided",
+                "size": 5731
+            }] 
+        }, {
+            "name": "Atlassian Hipchat Integration Plugin",
+            "children": [{
+                "name": "Version 7.11.5",
+                "size": 7074
+             }, {
+                "name": "ENABLED",
+                "size": 5731
+             }, {
+                "name": "Framework Version: 2",
+                "size": 5731
+             }, {
+                "name": "Bundled",
+                "size": 5731
+            }] }, {
+            "name": "Confluence Editor Loader Plugin",
+            "children": [{
+                "name": "Version 6.15.2",
+                "size": 7074
+             }, {
+                "name": "ENABLED",
+                "size": 5731
+             }, {
+                "name": "Framework Version: 2",
+                "size": 5731
+             }, {
+                "name": "Bundled",
+                "size": 5731
+            }]     
+        }, {
+            "name": "Atlassian Editor Plugin",
+            "children": [{
+                "name": "Version 6.15.2",
+                "size": 7074
+             }, {
+                "name": "ENABLED",
+                "size": 5731
+             }, {
+                "name": "Framework Version: 2",
+                "size": 5731
+             }, {
+                "name": "Bundled",
+                "size": 5731
+            }] 
+        }, {
+            "name": "Atlassian Keyboard Shortcuts - module support",
+            "children": [{
+                "name": "Version 1.3.2",
+                "size": 7074
+             }, {
+                "name": "ENABLED",
+                "size": 5731
+             }, {
+                "name": "Framework Version: 2",
+                "size": 5731
+             }, {
+                "name": "Bundled",
+                "size": 5731
+            }] 
+        }, {
+            "name": "Confluence Image Attributes",
+            "children": [{
+                "name": "Version 6.15.2",
+                "size": 7074
+             }, {
+                "name": "ENABLED",
+                "size": 5731
+             }, {
+                "name": "Framework Version: 2",
+                "size": 5731
+             }, {
+                "name": "Bundled",
+                "size": 5731
+            }] 
+        }, {
+            "name": "Atlassian Plugins - Avatar Plugin",
+            "children": [{
+                "name": "Version 1.3.5",
+                "size": 7074
+             }, {
+                "name": "ENABLED",
+                "size": 5731
+             }, {
+                "name": "Framework Version: 2",
+                "size": 5731
+             }, {
+                "name": "Bundled",
+                "size": 5731
+            }] 
+        }, {
+            "name": "Atlassian Plugins - JavaScript libraries",
+            "children": [{
+                "name": "Version 1.2.4",
+                "size": 7074
+             }, {
+                "name": "ENABLED",
+                "size": 5731
+             }, {
+                "name": "Framework Version: 2",
+                "size": 5731
+             }, {
+                "name": "Bundled",
+                "size": 5731
+            }] 
+        }, {
+            "name": "Confluence English (United States) Language Pack",
+            "children": [{
+                "name": "Version 6.15.0.rc1-20190311231818",
+                "size": 7074
+             }, {
+                "name": "ENABLED",
+                "size": 5731
+             }, {
+                "name": "Framework Version: 2",
+                "size": 5731
+             }, {
+                "name": "Bundled",
+                "size": 5731
+            }] 
+        }, {
+            "name": "Confluence Email Tracker",
+            "children": [{
+                "name": "Version 1.4",
+                "size": 7074
+             }, {
+                "name": "ENABLED",
+                "size": 5731
+             }, {
+                "name": "Framework Version: 2",
+                "size": 5731
+             }, {
+                "name": "Bundled",
+                "size": 5731
+            }] 
+        }, {
+            "name": "Confluence Knowledge Base Blueprints Plugin",
+            "children": [{
+                "name": "Version 3.0.7",
+                "size": 7074
+             }, {
+                "name": "ENABLED",
+                "size": 5731
+             }, {
+                "name": "Framework Version: 2",
+                "size": 5731
+             }, {
+                "name": "Bundled",
+                "size": 5731
+            }] 
+        }, {
+            "name": "Confluence Space Directory",
+            "children": [{
+                "name": "Version 6.15.2",
+                "size": 7074
+             }, {
+                "name": "ENABLED",
+                "size": 5731
+             }, {
+                "name": "Framework Version: 2",
+                "size": 5731
+             }, {
+                "name": "Bundled",
+                "size": 5731
+            }] 
+        }, {
+            "name": "JSON Library",
+            "children": [{
+                "name": "Version 20070829.0.0.1",
+                "size": 7074
+             }, {
+                "name": "ENABLED",
+                "size": 5731
+             }, {
+                "name": "Framework Version: 2",
+                "size": 5731
+             }, {
+                "name": "Bundled",
+                "size": 5731
+            }] 
+        }, {
+            "name": "Atlassian Gadgets SPI",
+            "children": [{
+                "name": "Version 4.3.2",
+                "size": 7074
+             }, {
+                "name": "ENABLED",
+                "size": 5731
+             }, {
+                "name": "Framework Version: 2",
+                "size": 5731
+             }, {
+                "name": "Bundled",
+                "size": 5731
+            }]     
+        }, {
+            "name": "ActiveObjects Plugin - OSGi Bundle",
+            "children": [{
+                "name": "Version 1.5.2",
+                "size": 7074
+             }, {
+                "name": "ENABLED",
+                "size": 5731
+             }, {
+                "name": "Framework Version: 2",
+                "size": 5731
+             }, {
+                "name": "Bundled",
+                "size": 5731
+            }] 
+        }, {
+            "name": "Code Macro Plugin",
+            "children": [{
+                "name": "Version 3.0.4",
+                "size": 7074
+             }, {
+                "name": "ENABLED",
+                "size": 5731
+             }, {
+                "name": "Framework Version: 2",
+                "size": 5731
+             }, {
+                "name": "Bundled",
+                "size": 5731
+            }] 
+        }, {
+            "name": "Confluence File Notifications",
+            "children": [{
+                "name": "Version 2.0.2",
+                "size": 7074
+             }, {
+                "name": "ENABLED",
+                "size": 5731
+             }, {
+                "name": "Framework Version: 2",
+                "size": 5731
+             }, {
+                "name": "Bundled",
+                "size": 5731
+            }] 
+        }, {
+            "name": "Confluence Roadmap Planner",
+            "children": [{
+                "name": "Version 14.2.3",
+                "size": 7074
+             }, {
+                "name": "ENABLED",
+                "size": 5731
+             }, {
+                "name": "Framework Version: 2",
+                "size": 5731
+             }, {
+                "name": "Bundled",
+                "size": 5731
+            }] 
+        }, {
+            "name": "Confluence Page Banner",
+            "children": [{
+                "name": "Version 3.0.5",
+                "size": 7074
+             }, {
+                "name": "ENABLED",
+                "size": 5731
+             }, {
+                "name": "Framework Version: 2",
+                "size": 5731
+             }, {
+                "name": "Bundled",
+                "size": 5731
+            }] 
+        }, {
+            "name": "Confluence CQL plugin",
+            "children": [{
+                "name": "Version 4.1.4",
+                "size": 7074
+             }, {
+                "name": "ENABLED",
+                "size": 5731
+             }, {
+                "name": "Framework Version: 2",
+                "size": 5731
+             }, {
+                "name": "Bundled",
+                "size": 5731
+            }] 
+        }, {
+            "name": "Admin Tasks",
+            "children": [{
+                "name": "Version 1.0",
+                "size": 7074
+             }, {
+                "name": "ENABLED",
+                "size": 5731
+             }, {
+                "name": "Framework Version: 1",
+                "size": 5731
+             }, {
+                "name": "Provided",
+                "size": 5731
+            }] 
+        }, {
+            "name": "Core Startup and Shutdown",
+            "children": [{
+                "name": "Version 1.0",
+                "size": 7074
+             }, {
+                "name": "ENABLED",
+                "size": 5731
+             }, {
+                "name": "Framework Version: 1",
+                "size": 5731
+             }, {
+                "name": "Provided",
+                "size": 5731
+            }] 
+        }, {
+            "name": "Confluence Nav Links Plugin",
+            "children": [{
+                "name": "Version 6.15.2",
+                "size": 7074
+             }, {
+                "name": "ENABLED",
+                "size": 5731
+             }, {
+                "name": "Framework Version: 2",
+                "size": 5731
+             }, {
+                "name": "Bundled",
+                "size": 5731
+            }] 
+        }, {
+            "name": "Confluence Scheduler SPI",
+            "children": [{
+                "name": "Version 6.15.2",
+                "size": 7074
+             }, {
+                "name": "ENABLED",
+                "size": 5731
+             }, {
+                "name": "Framework Version: 2",
+                "size": 5731
+             }, {
+                "name": "Bundled",
+                "size": 5731
+            }] 
+        }, {
+            "name": "Workbox - Confluence Provider Plugin",
+            "children": [{
+                "name": "Version 7.0.3",
+                "size": 7074
+             }, {
+                "name": "ENABLED",
+                "size": 5731
+             }, {
+                "name": "Framework Version: 2",
+                "size": 5731
+             }, {
+                "name": "Bundled",
+                "size": 5731
+            }] }, {
+            "name": "Confluence UI Components",
+            "children": [{
+                "name": "Version 2.1.8",
+                "size": 7074
+             }, {
+                "name": "ENABLED",
+                "size": 5731
+             }, {
+                "name": "Framework Version: 2",
+                "size": 5731
+             }, {
+                "name": "Bundled",
+                "size": 5731
+            }]     
+        }, {
+            "name": "System Web Resources",
+            "children": [{
+                "name": "Version 1.0",
+                "size": 7074
+             }, {
+                "name": "ENABLED",
+                "size": 5731
+             }, {
+                "name": "Framework Version: 1",
+                "size": 5731
+             }, {
+                "name": "Provided",
+                "size": 5731
+            }] 
+        }, {
+            "name": "Default section provider for content name search",
+            "children": [{
+                "name": "Version 1.0",
+                "size": 7074
+             }, {
+                "name": "ENABLED",
+                "size": 5731
+             }, {
+                "name": "Framework Version: 1",
+                "size": 5731
+             }, {
+                "name": "Provided",
+                "size": 5731
+            }] 
+        }, {
+            "name": "Core Path Converters",
+            "children": [{
+                "name": "Version 1.0",
+                "size": 7074
+             }, {
+                "name": "ENABLED",
+                "size": 5731
+             }, {
+                "name": "Framework Version: 1",
+                "size": 5731
+             }, {
+                "name": "Provided",
+                "size": 5731
+            }] 
+        }, {
+            "name": "System Web Panels",
+            "children": [{
+                "name": "Version 1.0",
+                "size": 7074
+             }, {
+                "name": "ENABLED",
+                "size": 5731
+             }, {
+                "name": "Framework Version: 1",
+                "size": 5731
+             }, {
+                "name": "Provided",
+                "size": 5731
+            }] 
+        }, {
+            "name": "Confluence Blogging RPC Plugin",
+            "children": [{
+                "name": "Version 3.0.1",
+                "size": 7074
+             }, {
+                "name": "ENABLED",
+                "size": 5731
+             }, {
+                "name": "Framework Version: 2",
+                "size": 5731
+             }, {
+                "name": "Bundled",
+                "size": 5731
+            }] 
+        }, {
+            "name": "Macro Usage Admin Plugin",
+            "children": [{
+                "name": "Version 2.0.3",
+                "size": 7074
+             }, {
+                "name": "ENABLED",
+                "size": 5731
+             }, {
+                "name": "Framework Version: 2",
+                "size": 5731
+             }, {
+                "name": "Bundled",
+                "size": 5731
+            }] 
+        }, {
+            "name": "Confluence Paste",
+            "children": [{
+                "name": "Version 6.15.2",
+                "size": 7074
+             }, {
+                "name": "ENABLED",
+                "size": 5731
+             }, {
+                "name": "Framework Version: 2",
+                "size": 5731
+             }, {
+                "name": "Bundled",
+                "size": 5731
+            }] 
+        }, {
+            "name": "Confluence Usage Stats",
+            "children": [{
+                "name": "Version 2.0.1",
+                "size": 7074
+             }, {
+                "name": "INSTALLED",
+                "size": 5731
+             }, {
+                "name": "Framework Version: 2",
+                "size": 5731
+             }, {
+                "name": "Bundled",
+                "size": 5731
+            }] 
+        }, {
+            "name": "Spring Interceptor Adapter Plugin",
+            "children": [{
+                "name": "Version 1.1",
+                "size": 7074
+             }, {
+                "name": "ENABLED",
+                "size": 5731
+             }, {
+                "name": "Framework Version: 2",
+                "size": 5731
+             }, {
+                "name": "Bundled",
+                "size": 5731
+            }] 
+        }, {
+            "name": "Default Macro Metadata Provider",
+            "children": [{
+                "name": "Version 1.0",
+                "size": 7074
+             }, {
+                "name": "ENABLED",
+                "size": 5731
+             }, {
+                "name": "Framework Version: 1",
+                "size": 5731
+             }, {
+                "name": "Provided",
+                "size": 5731
+            }] 
+        }, {
+            "name": "Confluence Maintenance",
+            "children": [{
+                "name": "Version 6.15.2",
+                "size": 7074
+             }, {
+                "name": "ENABLED",
+                "size": 5731
+             }, {
+                "name": "Framework Version: 2",
+                "size": 5731
+             }, {
+                "name": "User Installed",
+                "size": 5731
+            }] 
+        }, {
+            "name": "Atlassian browser metrics plugin",
+            "children": [{
+                "name": "Version 7.0.1",
+                "size": 7074
+             }, {
+                "name": "ENABLED",
+                "size": 5731
+             }, {
+                "name": "Framework Version: 2",
+                "size": 5731
+             }, {
+                "name": "Bundled",
+                "size": 5731
+            }] 
+        }, {
+            "name": "Confluence Mobile Plugin",
+            "children": [{
+                "name": "Version 2.2.1",
+                "size": 7074
+             }, {
+                "name": "ENABLED",
+                "size": 5731
+             }, {
+                "name": "Framework Version: 2",
+                "size": 5731
+             }, {
+                "name": "User Installed",
+                "size": 5731
+            }]     
+        }, {
+            "name": "Team Calendars",
+            "children": [{
+                "name": "Version 6.0.27",
+                "size": 7074
+             }, {
+                "name": "ENABLED",
+                "size": 5731
+             }, {
+                "name": "Framework Version: 2",
+                "size": 5731
+             }, {
+                "name": "User Installed",
+                "size": 5731
+            }] 
+        }, {
+            "name": "Confluence Quick Reload Plugin",
+            "children": [{
+                "name": "Version 6.15.2",
+                "size": 7074
+             }, {
+                "name": "ENABLED",
+                "size": 5731
+             }, {
+                "name": "Framework Version: 2",
+                "size": 5731
+             }, {
+                "name": "Bundled",
+                "size": 5731
+            }] 
+        }, {
+            "name": "Atlassian Template Renderer API",
+            "children": [{
+                "name": "Version 2.1.0",
+                "size": 7074
+             }, {
+                "name": "ENABLED",
+                "size": 5731
+             }, {
+                "name": "Framework Version: 2",
+                "size": 5731
+             }, {
+                "name": "Bundled",
+                "size": 5731
+            }] 
+        }, {
+            "name": "Confluence Monitoring Console",
+            "children": [{
+                "name": "Version 6.15.2",
+                "size": 7074
+             }, {
+                "name": "ENABLED",
+                "size": 5731
+             }, {
+                "name": "Framework Version: 2",
+                "size": 5731
+             }, {
+                "name": "Bundled",
+                "size": 5731
+            }] 
+        }, {
+            "name": "Atlassian Pretty URLs Plugin",
+            "children": [{
+                "name": "Version 2.0.0",
+                "size": 7074
+             }, {
+                "name": "ENABLED",
+                "size": 5731
+             }, {
+                "name": "Framework Version: 2",
+                "size": 5731
+             }, {
+                "name": "Bundled",
+                "size": 5731
+            }] 
+        }, {
+            "name": "Confluence Spaces",
+            "children": [{
+                "name": "Version 6.15.2",
+                "size": 7074
+             }, {
+                "name": "ENABLED",
+                "size": 5731
+             }, {
+                "name": "Framework Version: 2",
+                "size": 5731
+             }, {
+                "name": "Bundled",
+                "size": 5731
+            }] 
+        }, {
+            "name": "Confluence Frontend",
+            "children": [{
+                "name": "Version 6.15.2",
+                "size": 7074
+             }, {
+                "name": "ENABLED",
+                "size": 5731
+             }, {
+                "name": "Framework Version: 2",
+                "size": 5731
+             }, {
+                "name": "Bundled",
+                "size": 5731
+            }] 
+        }, {
+            "name": "Atlassian Cluster Monitoring Plugin",
+            "children": [{
+                "name": "Version 1.0.3",
+                "size": 7074
+             }, {
+                "name": "ENABLED",
+                "size": 5731
+             }, {
+                "name": "Framework Version: 2",
+                "size": 5731
+             }, {
+                "name": "Bundled",
+                "size": 5731
+            }] 
+        }, {
+            "name": "Atlassian Universal Plugin Manager Plugin",
+            "children": [{
+                "name": "Version 3.0.2",
+                "size": 7074
+             }, {
+                "name": "ENABLED",
+                "size": 5731
+             }, {
+                "name": "Framework Version: 2",
+                "size": 5731
+             }, {
+                "name": "User Installed",
+                "size": 5731
+            }] 
+        }, {
+            "name": "SAML for Atlassian Data Center",
+            "children": [{
+                "name": "Version 2.2.1",
+                "size": 7074
+             }, {
+                "name": "ENABLED",
+                "size": 5731
+             }, {
+                "name": "Framework Version: 2",
+                "size": 5731
+             }, {
+                "name": "Bundled",
+                "size": 5731
+            }] 
+        }, {
+            "name": "Atlassian Whitelist UI Plugin",
+            "children": [{
+                "name": "Version 3.0.2",
+                "size": 7074
+             }, {
+                "name": "ENABLED",
+                "size": 5731
+             }, {
+                "name": "Framework Version: 2",
+                "size": 5731
+             }, {
+                "name": "Bundled",
+                "size": 5731
+            }] 
+        }, {
+            "name": "Confluence Dashboard Actions",
+            "children": [{
+                "name": "Version 6.15.2",
+                "size": 7074
+             }, {
+                "name": "ENABLED",
+                "size": 5731
+             }, {
+                "name": "Framework Version: 1",
+                "size": 5731
+             }, {
+                "name": "Bundled",
+                "size": 5731
+            }] 
+        }, {
+            "name": "Content Action Menu Sections",
+            "children": [{
+                "name": "Version 1.0",
+                "size": 7074
+             }, {
+                "name": "ENABLED",
+                "size": 5731
+             }, {
+                "name": "Framework Version: 1",
+                "size": 5731
+             }, {
+                "name": "Provided",
+                "size": 5731
+            }] 
+        }, {
+            "name": "Confluence Soy Template Support",
+            "children": [{
+                "name": "Version 6.15.2",
+                "size": 7074
+             }, {
+                "name": "ENABLED",
+                "size": 5731
+             }, {
+                "name": "Framework Version: 2",
+                "size": 5731
+             }, {
+                "name": "Bundled",
+                "size": 5731
+            }]     
+        }, {
+            "name": "Confluence Edge Index",
+            "children": [{
+                "name": "Version 6.15.2",
+                "size": 7074
+             }, {
+                "name": "ENABLED",
+                "size": 5731
+             }, {
+                "name": "Framework Version: 2",
+                "size": 5731
+             }, {
+                "name": "Bundled",
+                "size": 5731
+            }] 
+        }, {
+            "name": "Confluence REST Shared Jersey Classes",
+            "children": [{
+                "name": "Version 6.15.2",
+                "size": 7074
+             }, {
+                "name": "ENABLED",
+                "size": 5731
+             }, {
+                "name": "Framework Version: 2",
+                "size": 5731
+             }, {
+                "name": "Bundled",
+                "size": 5731
+            }] 
+        }, {
+            "name": "Atlassian Notifications SPI Plugin",
+            "children": [{
+                "name": "Version 3.3.3",
+                "size": 7074
+             }, {
+                "name": "ENABLED",
+                "size": 5731
+             }, {
+                "name": "Framework Version: 2",
+                "size": 5731
+             }, {
+                "name": "Bundled",
+                "size": 5731
+            }] 
+        }, {
+            "name": "Confluence Monitoring",
+            "children": [{
+                "name": "Version 6.15.2",
+                "size": 7074
+             }, {
+                "name": "ENABLED",
+                "size": 5731
+             }, {
+                "name": "Framework Version: 2",
+                "size": 5731
+             }, {
+                "name": "Bundled",
+                "size": 5731
+            }] 
+        }, {
+            "name": "Confluence Axis SOAP plugin",
+            "children": [{
+                "name": "Version 1.7.1",
+                "size": 7074
+             }, {
+                "name": "ENABLED",
+                "size": 5731
+             }, {
+                "name": "Framework Version: 2",
+                "size": 5731
+             }, {
+                "name": "Bundled",
+                "size": 5731
+            }] 
+        }, {
+            "name": "Workbox - Host Plugin",
+            "children": [{
+                "name": "Version 7.0.3",
+                "size": 7074
+             }, {
+                "name": "ENABLED",
+                "size": 5731
+             }, {
+                "name": "Framework Version: 2",
+                "size": 5731
+             }, {
+                "name": "Bundled",
+                "size": 5731
+            }] 
+        }, {
+            "name": "Wiki Markup Plugin",
+            "children": [{
+                "name": "Version 1.0",
+                "size": 7074
+             }, {
+                "name": "ENABLED",
+                "size": 5731
+             }, {
+                "name": "Framework Version: 1",
+                "size": 5731
+             }, {
+                "name": "Provided",
+                "size": 5731
+            }] 
+        }, {
+            "name": "Atlassian OAuth Admin Plugin",
+            "children": [{
+                "name": "Version 4.0.0",
+                "size": 7074
+             }, {
+                "name": "ENABLED",
+                "size": 5731
+             }, {
+                "name": "Framework Version: 2",
+                "size": 5731
+             }, {
+                "name": "Bundled",
+                "size": 5731
+            }] 
+        }, {
+            "name": "Confluence Content Report Plugin",
+            "children": [{
+                "name": "Version 2.0.1",
+                "size": 7074
+             }, {
+                "name": "ENABLED",
+                "size": 5731
+             }, {
+                "name": "Framework Version: 2",
+                "size": 5731
+             }, {
+                "name": "Bundled",
+                "size": 5731
+            }] 
+        }, {
+            "name": "Atlassian REST - Module Types",
+            "children": [{
+                "name": "Version 3.5.1",
+                "size": 7074
+             }, {
+                "name": "ENABLED",
+                "size": 5731
+             }, {
+                "name": "Framework Version: 2",
+                "size": 5731
+             }, {
+                "name": "Bundled",
+                "size": 5731
+            }] 
+        }, {
+            "name": "Space Item Tabs",
+            "children": [{
+                "name": "Version 1.0",
+                "size": 7074
+             }, {
+                "name": "ENABLED",
+                "size": 5731
+             }, {
+                "name": "Framework Version: 1",
+                "size": 5731
+             }, {
+                "name": "Provided",
+                "size": 5731
+            }] 
+        }, {
+            "name": "Confluence Polish (Poland) Language Pack",
+            "children": [{
+                "name": "Version 6.15.0.rc1-20190311231818",
+                "size": 7074
+             }, {
+                "name": "ENABLED",
+                "size": 5731
+             }, {
+                "name": "Framework Version: 2",
+                "size": 5731
+             }, {
+                "name": "Bundled",
+                "size": 5731
+            }] 
+        }, {
+            "name": "Confluence Extractor API Plugin",
+            "children": [{
+                "name": "Version 1.0.1",
+                "size": 7074
+             }, {
+                "name": "ENABLED",
+                "size": 5731
+             }, {
+                "name": "Framework Version: 2",
+                "size": 5731
+             }, {
+                "name": "Bundled",
+                "size": 5731
+            }] 
+        }, {
+            "name": "Confluence Sortable Tables",
+            "children": [{
+                "name": "Version 6.15.2",
+                "size": 7074
+             }, {
+                "name": "ENABLED",
+                "size": 5731
+             }, {
+                "name": "Framework Version: 2",
+                "size": 5731
+             }, {
+                "name": "Bundled",
+                "size": 5731
+            }] 
+        }, {
+            "name": "Search Web Interface",
+            "children": [{
+                "name": "Version 1.0",
+                "size": 7074
+             }, {
+                "name": "ENABLED",
+                "size": 5731
+             }, {
+                "name": "Framework Version: 1",
+                "size": 5731
+             }, {
+                "name": "Provided",
+                "size": 5731
+            }]     
+        }, {
+            "name": "Advanced Macros",
+            "children": [{
+                "name": "Version 4.0.20",
+                "size": 7074
+             }, {
+                "name": "ENABLED",
+                "size": 5731
+             }, {
+                "name": "Framework Version: 1",
+                "size": 5731
+             }, {
+                "name": "Bundled",
+                "size": 5731
+            }] 
+        }, {
+            "name": "Confluence Activity Streams Inline Actions Plugin",
+            "children": [{
+                "name": "Version 6.4.7",
+                "size": 7074
+             }, {
+                "name": "ENABLED",
+                "size": 5731
+             }, {
+                "name": "Framework Version: 2",
+                "size": 5731
+             }, {
+                "name": "Bundled",
+                "size": 5731
+            }] 
+        }, {
+            "name": "Confluence Email to Page",
+            "children": [{
+                "name": "Version 5.8.8",
+                "size": 7074
+             }, {
+                "name": "ENABLED",
+                "size": 5731
+             }, {
+                "name": "Framework Version: 2",
+                "size": 5731
+             }, {
+                "name": "Bundled",
+                "size": 5731
+            }] 
+        }, {
+            "name": "Page Highlight Actions - Plugin",
+            "children": [{
+                "name": "Version 1.7.7",
+                "size": 7074
+             }, {
+                "name": "ENABLED",
+                "size": 5731
+             }, {
+                "name": "Framework Version: 2",
+                "size": 5731
+             }, {
+                "name": "Bundled",
+                "size": 5731
+            }] 
+        }, {
+            "name": "Streams API",
+            "children": [{
+                "name": "Version 6.4.7",
+                "size": 7074
+             }, {
+                "name": "ENABLED",
+                "size": 5731
+             }, {
+                "name": "Framework Version: 2",
+                "size": 5731
+             }, {
+                "name": "Bundled",
+                "size": 5731
+            }] 
+        }, {
+            "name": "User Lister",
+            "children": [{
+                "name": "Version 3.0.3",
+                "size": 7074
+             }, {
+                "name": "ENABLED",
+                "size": 5731
+             }, {
+                "name": "Framework Version: 2",
+                "size": 5731
+             }, {
+                "name": "Bundled",
+                "size": 5731
+            }] 
+        }, {
+            "name": "Create Menu Items",
+            "children": [{
+                "name": "Version 1.0",
+                "size": 7074
+             }, {
+                "name": "ENABLED",
+                "size": 5731
+             }, {
+                "name": "Framework Version: 1",
+                "size": 5731
+             }, {
+                "name": "Provided",
+                "size": 5731
+            }]
+        }, {
+            "name": "Atlassian HTTP Client, Apache HTTP components impl",
+            "children": [{
+                "name": "Version 1.0.1",
+                "size": 7074
+             }, {
+                "name": "ENABLED",
+                "size": 5731
+             }, {
+                "name": "Framework Version: 2",
+                "size": 5731
+             }, {
+                "name": "Bundled",
+                "size": 5731
+            }] 
+        }, {
+            "name": "Confluence Expand Macro",
+            "children": [{
+                "name": "Version 7.0.3",
+                "size": 7074
+             }, {
+                "name": "ENABLED",
+                "size": 5731
+             }, {
+                "name": "Framework Version: 2",
+                "size": 5731
+             }, {
+                "name": "Bundled",
+                "size": 5731
+            }] 
+        }, {
+            "name": "Atlassian Plugins - Web Resources REST",
+            "children": [{
+                "name": "Version 3.5.19-ac3d947",
+                "size": 7074
+             }, {
+                "name": "ENABLED",
+                "size": 5731
+             }, {
+                "name": "Framework Version: 3",
+                "size": 5731
+             }, {
+                "name": "Bundled",
+                "size": 5731
+            }] 
+        }, {
+            "name": "Confluence Analytics Whitelist Plugin",
+            "children": [{
+                "name": "Version 1.0",
+                "size": 7074
+             }, {
+                "name": "ENABLED",
+                "size": 5731
+             }, {
+                "name": "Framework Version: 2",
+                "size": 5731
+             }, {
+                "name": "Bundled",
+                "size": 5731
+            }] 
+        }, {
+            "name": "Confluence Search UI Plugin",
+            "children": [{
+                "name": "Version 2.2.4",
+                "size": 7074
+             }, {
+                "name": "ENABLED",
+                "size": 5731
+             }, {
+                "name": "Framework Version: 2",
+                "size": 5731
+             }, {
+                "name": "Bundled",
+                "size": 5731
+            }] 
+        }, {
+            "name": "Dialog Wizard",
+            "children": [{
+                "name": "Version 0.10",
+                "size": 7074
+             }, {
+                "name": "ENABLED",
+                "size": 5731
+             }, {
+                "name": "Framework Version: 2",
+                "size": 5731
+             }, {
+                "name": "Bundled",
+                "size": 5731
+            }] 
+        }, {
+            "name": "Confluence Core Macros",
+            "children": [{
+                "name": "Version 6.1.0",
+                "size": 7074
+             }, {
+                "name": "ENABLED",
+                "size": 5731
+             }, {
+                "name": "Framework Version: 2",
+                "size": 5731
+             }, {
+                "name": "Bundled",
+                "size": 5731
+            }] 
+        }, {
+            "name": "Project Creation Capability Product REST Plugin",
+            "children": [{
+                "name": "Version 2.0.11",
+                "size": 7074
+             }, {
+                "name": "ENABLED",
+                "size": 5731
+             }, {
+                "name": "Framework Version: 2",
+                "size": 5731
+             }, {
+                "name": "Bundled",
+                "size": 5731
+            }]
+        }, {
+            "name": "Confluence Norwegian (Norway) Language Pack",
+            "children": [{
+                "name": "Version 6.15.0.rc1-20190311231818",
+                "size": 7074
+             }, {
+                "name": "ENABLED",
+                "size": 5731
+             }, {
+                "name": "Framework Version: 2",
+                "size": 5731
+             }, {
+                "name": "Bundled",
+                "size": 5731
+            }]     
+        }, {
+            "name": "Atlassian Spring Scanner Runtime",
+            "children": [{
+                "name": "Version 2.1.7",
+                "size": 7074
+             }, {
+                "name": "ENABLED",
+                "size": 5731
+             }, {
+                "name": "Framework Version: 2",
+                "size": 5731
+             }, {
+                "name": "Bundled",
+                "size": 5731
+            }] 
+        }, {
+            "name": "Confluence Icelandic (Iceland) Language Pack",
+            "children": [{
+                "name": "Version 6.15.0.rc1-20190311231818",
+                "size": 7074
+             }, {
+                "name": "ENABLED",
+                "size": 5731
+             }, {
+                "name": "Framework Version: 2",
+                "size": 5731
+             }, {
+                "name": "Bundled",
+                "size": 5731
+            }] 
+        }, {
+            "name": "Confluence Reply to Email",
+            "children": [{
+                "name": "Version 5.8.8",
+                "size": 7074
+             }, {
+                "name": "INSTALLED",
+                "size": 5731
+             }, {
+                "name": "Framework Version: 2",
+                "size": 5731
+             }, {
+                "name": "Bundled",
+                "size": 5731
+            }] 
+        }, {
+            "name": "Confluence Avatar Plugin",
+            "children": [{
+                "name": "Version 1.1.0",
+                "size": 7074
+             }, {
+                "name": "ENABLED",
+                "size": 5731
+             }, {
+                "name": "Framework Version: 2",
+                "size": 5731
+             }, {
+                "name": "Bundled",
+                "size": 5731
+            }] 
+        }, {
+            "name": "Opensocial Plugin",
+            "children": [{
+                "name": "Version 4.3.2",
+                "size": 7074
+             }, {
+                "name": "ENABLED",
+                "size": 5731
+             }, {
+                "name": "Framework Version: 2",
+                "size": 5731
+             }, {
+                "name": "Bundled",
+                "size": 5731
+            }] 
+        }, {
+            "name": "Dashboard Macros",
+            "children": [{
+                "name": "Version 6.15.2",
+                "size": 7074
+             }, {
+                "name": "ENABLED",
+                "size": 5731
+             }, {
+                "name": "Framework Version: 2",
+                "size": 5731
+             }, {
+                "name": "Bundled",
+                "size": 5731
+            }] 
+        }, {
+            "name": "Confluence Periodic Analytics Events",
+            "children": [{
+                "name": "Version 4.0.0",
+                "size": 7074
+             }, {
+                "name": "ENABLED",
+                "size": 5731
+             }, {
+                "name": "Framework Version: 2",
+                "size": 5731
+             }, {
+                "name": "Bundled",
+                "size": 5731
+            }] 
+        }, {
+            "name": "User Hover Menu Sections",
+            "children": [{
+                "name": "Version 1.0",
+                "size": 7074
+             }, {
+                "name": "ENABLED",
+                "size": 5731
+             }, {
+                "name": "Framework Version: 1",
+                "size": 5731
+             }, {
+                "name": "Provided",
+                "size": 5731
+            }] 
+        }, {
+            "name": "Confluence Hipchat Plugin",
+            "children": [{
+                "name": "Version 7.11.5",
+                "size": 7074
+             }, {
+                "name": "ENABLED",
+                "size": 5731
+             }, {
+                "name": "Framework Version: 2",
+                "size": 5731
+             }, {
+                "name": "Bundled",
+                "size": 5731
+            }] 
+        }, {
+            "name": "Confluence Getting Started",
+            "children": [{
+                "name": "Version 6.15.2",
+                "size": 7074
+             }, {
+                "name": "ENABLED",
+                "size": 5731
+             }, {
+                "name": "Framework Version: 2",
+                "size": 5731
+             }, {
+                "name": "Bundled",
+                "size": 5731
+            }] 
+        }, {
+            "name": "Confluence Czech (Czech Republic) Language Pack",
+            "children": [{
+                "name": "Version 6.15.0.rc1-20190311231818",
+                "size": 7074
+             }, {
+                "name": "ENABLED",
+                "size": 5731
+             }, {
+                "name": "Framework Version: 2",
+                "size": 5731
+             }, {
+                "name": "Bundled",
+                "size": 5731
+            }] 
+        }, {
+            "name": "Confluence UI REST",
+            "children": [{
+                "name": "Version 6.15.2",
+                "size": 7074
+             }, {
+                "name": "ENABLED",
+                "size": 5731
+             }, {
+                "name": "Framework Version: 2",
+                "size": 5731
+             }, {
+                "name": "Bundled",
+                "size": 5731
+            }] 
+        }, {
+            "name": "Lucene Compatibility Plugin",
+            "children": [{
+                "name": "Version 1.1.1",
+                "size": 7074
+             }, {
+                "name": "ENABLED",
+                "size": 5731
+             }, {
+                "name": "Framework Version: 2",
+                "size": 5731
+             }, {
+                "name": "Bundled",
+                "size": 5731
+            }] 
+        }, {
+            "name": "Confluence Page Layouts",
+            "children": [{
+                "name": "Version 6.15.2",
+                "size": 7074
+             }, {
+                "name": "ENABLED",
+                "size": 5731
+             }, {
+                "name": "Framework Version: 2",
+                "size": 5731
+             }, {
+                "name": "Bundled",
+                "size": 5731
+            }] 
+        }, {
+            "name": "Atlassian OAuth API",
+            "children": [{
+                "name": "Version 4.0.0",
+                "size": 7074
+             }, {
+                "name": "ENABLED",
+                "size": 5731
+             }, {
+                "name": "Framework Version: 2",
+                "size": 5731
+             }, {
+                "name": "Bundled",
+                "size": 5731
+            }] 
+        }, {
+            "name": "Confluence Remote API",
+            "children": [{
+                "name": "Version 6.15.2",
+                "size": 7074
+             }, {
+                "name": "ENABLED",
+                "size": 5731
+             }, {
+                "name": "Framework Version: 1",
+                "size": 5731
+             }, {
+                "name": "Provided",
+                "size": 5731
+            }] 
+        }, {
+            "name": "Diagnostics resources",
+            "children": [{
+                "name": "Version 1.0",
+                "size": 7074
+             }, {
+                "name": "ENABLED",
+                "size": 5731
+             }, {
+                "name": "Framework Version: 1",
+                "size": 5731
+             }, {
+                "name": "Provided",
+                "size": 5731
+            }]     
+        }, {
+            "name": "Atlassian TinyMCE Plugin",
+            "children": [{
+                "name": "Version 6.15.2",
+                "size": 7074
+             }, {
+                "name": "ENABLED",
+                "size": 5731
+             }, {
+                "name": "Framework Version: 2",
+                "size": 5731
+             }, {
+                "name": "Bundled",
+                "size": 5731
+            }] 
+        }, {
+            "name": "Confluence Dark Features REST endpoint",
+            "children": [{
+                "name": "Version 6.15.2",
+                "size": 7074
+             }, {
+                "name": "ENABLED",
+                "size": 5731
+             }, {
+                "name": "Framework Version: 2",
+                "size": 5731
+             }, {
+                "name": "Bundled",
+                "size": 5731
+            }] 
+        }, {
+            "name": "Page Tabs",
+            "children": [{
+                "name": "Version 1.0",
+                "size": 7074
+             }, {
+                "name": "ENABLED",
+                "size": 5731
+             }, {
+                "name": "Framework Version: 1",
+                "size": 5731
+             }, {
+                "name": "Provided",
+                "size": 5731
+            }] 
+        }, {
+            "name": "View follow resources",
+            "children": [{
+                "name": "Version 1.0",
+                "size": 7074
+             }, {
+                "name": "ENABLED",
+                "size": 5731
+             }, {
+                "name": "Framework Version: 1",
+                "size": 5731
+             }, {
+                "name": "Provided",
+                "size": 5731
+            }] 
+        }, {
+            "name": "Confluence Activity Stream Plugin",
+            "children": [{
+                "name": "Version 6.4.7",
+                "size": 7074
+             }, {
+                "name": "ENABLED",
+                "size": 5731
+             }, {
+                "name": "Framework Version: 2",
+                "size": 5731
+             }, {
+                "name": "Bundled",
+                "size": 5731
+            }] 
+        }, {
+            "name": "Confluence Business Blueprints",
+            "children": [{
+                "name": "Version 6.0.5",
+                "size": 7074
+             }, {
+                "name": "ENABLED",
+                "size": 5731
+             }, {
+                "name": "Framework Version: 2",
+                "size": 5731
+             }, {
+                "name": "Bundled",
+                "size": 5731
+            }] 
+        }, {
+            "name": "Confluence Content Notifications Plugin",
+            "children": [{
+                "name": "Version 8.11.2",
+                "size": 7074
+             }, {
+                "name": "ENABLED",
+                "size": 5731
+             }, {
+                "name": "Framework Version: 2",
+                "size": 5731
+             }, {
+                "name": "Bundled",
+                "size": 5731
+            }] 
+        }, {
+            "name": "Confluence Inline Tasks",
+            "children": [{
+                "name": "Version 12.0.4",
+                "size": 7074
+             }, {
+                "name": "ENABLED",
+                "size": 5731
+             }, {
+                "name": "Framework Version: 2",
+                "size": 5731
+             }, {
+                "name": "Bundled",
+                "size": 5731
+            }] 
+        }, {
+            "name": "Confluence Editor v4 Plugin",
+            "children": [{
+                "name": "Version 6.15.2",
+                "size": 7074
+             }, {
+                "name": "ENABLED",
+                "size": 5731
+             }, {
+                "name": "Framework Version: 2",
+                "size": 5731
+             }, {
+                "name": "Bundled",
+                "size": 5731
+            }] 
+        }, {
+            "name": "WebDAV Plugin",
+            "children": [{
+                "name": "Version 5.0.5",
+                "size": 7074
+             }, {
+                "name": "ENABLED",
+                "size": 5731
+             }, {
+                "name": "Framework Version: 2",
+                "size": 5731
+             }, {
+                "name": "Bundled",
+                "size": 5731
+            }] 
+        }, {
+            "name": "ImageIO enabler",
+            "children": [{
+                "name": "Version 0.0.0",
+                "size": 7074
+             }, {
+                "name": "ENABLED",
+                "size": 5731
+             }, {
+                "name": "Framework Version: 2",
+                "size": 5731
+             }, {
+                "name": "Bundled",
+                "size": 5731
+            }] 
+        }, {
+            "name": "Atlassian OAuth Consumer SPI",
+            "children": [{
+                "name": "Version 4.0.0",
+                "size": 7074
+             }, {
+                "name": "ENABLED",
+                "size": 5731
+             }, {
+                "name": "Framework Version: 2",
+                "size": 5731
+             }, {
+                "name": "Bundled",
+                "size": 5731
+            }] 
+        }, {
+            "name": "Page Tabs",
+            "children": [{
+                "name": "Version 1.0",
+                "size": 7074
+             }, {
+                "name": "ENABLED",
+                "size": 5731
+             }, {
+                "name": "Framework Version: 1",
+                "size": 5731
+             }, {
+                "name": "Provided",
+                "size": 5731
+            }] 
+        }, {
+            "name": "Project Creation Plugin SPI for Confluence",
+            "children": [{
+                "name": "Version 2.0.11",
+                "size": 7074
+             }, {
+                "name": "ENABLED",
+                "size": 5731
+             }, {
+                "name": "Framework Version: 2",
+                "size": 5731
+             }, {
+                "name": "Bundled",
+                "size": 5731
+            }] 
+        }, {
+            "name": "Atlassian Spring Scanner Annotations",
+            "children": [{
+                "name": "Version 2.1.7",
+                "size": 7074
+             }, {
+                "name": "ENABLED",
+                "size": 5731
+             }, {
+                "name": "Framework Version: 2",
+                "size": 5731
+             }, {
+                "name": "Bundled",
+                "size": 5731
+            }] 
+        }, {
+            "name": "Cloud Migration Assistant for Confluence",
+            "children": [{
+                "name": "Version 2.0.2",
+                "size": 7074
+             }, {
+                "name": "ENABLED",
+                "size": 5731
+             }, {
+                "name": "Framework Version: 2",
+                "size": 5731
+             }, {
+                "name": "User Installed",
+                "size": 5731
+            }] 
+        }, {
+            "name": "Confluence Drag and Drop Plugin",
+            "children": [{
+                "name": "Version 6.15.2",
+                "size": 7074
+             }, {
+                "name": "ENABLED",
+                "size": 5731
+             }, {
+                "name": "Framework Version: 2",
+                "size": 5731
+             }, {
+                "name": "Bundled",
+                "size": 5731
+            }] 
+        }, {
+            "name": "Browse Menu Items",
+            "children": [{
+                "name": "Version 1.0",
+                "size": 7074
+             }, {
+                "name": "ENABLED",
+                "size": 5731
+             }, {
+                "name": "Framework Version: 1",
+                "size": 5731
+             }, {
+                "name": "Provided",
+                "size": 5731
+            }]     
+        }, {
+            "name": "Confluence Space Blueprints Plugin",
+            "children": [{
+                "name": "Version 2.0.1",
+                "size": 7074
+             }, {
+                "name": "ENABLED",
+                "size": 5731
+             }, {
+                "name": "Framework Version: 2",
+                "size": 5731
+             }, {
+                "name": "Bundled",
+                "size": 5731
+            }]     
+        }, {
+            "name": "Confluence Files",
+            "children": [{
+                "name": "Version 3.0.0",
+                "size": 7074
+             }, {
+                "name": "ENABLED",
+                "size": 5731
+             }, {
+                "name": "Framework Version: 2",
+                "size": 5731
+             }, {
+                "name": "Bundled",
+                "size": 5731
+            }] 
+        }, {
+            "name": "Confluence Base URL Plugin",
+            "children": [{
+                "name": "Version 1.1.5",
+                "size": 7074
+             }, {
+                "name": "ENABLED",
+                "size": 5731
+             }, {
+                "name": "Framework Version: 2",
+                "size": 5731
+             }, {
+                "name": "Bundled",
+                "size": 5731
+            }]     
+        }, {
+            "name": "Confluence Default Help Paths",
+            "children": [{
+                "name": "Version 1.0",
+                "size": 7074
+             }, {
+                "name": "ENABLED",
+                "size": 5731
+             }, {
+                "name": "Framework Version: 1",
+                "size": 5731
+             }, {
+                "name": "Provided",
+                "size": 5731
+            }] 
+        }, {
+            "name": "Page Tree Plugin",
+            "children": [{
+                "name": "Version 4.0.6",
+                "size": 7074
+             }, {
+                "name": "ENABLED",
+                "size": 5731
+             }, {
+                "name": "Framework Version: 1",
+                "size": 5731
+             }, {
+                "name": "Bundled",
+                "size": 5731
+            }] 
+        }, {
+            "name": "Confluence Hipchat Emoticons Plugin",
+            "children": [{
+                "name": "Version 3.1.0",
+                "size": 7074
+             }, {
+                "name": "ENABLED",
+                "size": 5731
+             }, {
+                "name": "Framework Version: 2",
+                "size": 5731
+             }, {
+                "name": "Bundled",
+                "size": 5731
+            }]     
+        }, {
+            "name": "Follow list resources",
+            "children": [{
+                "name": "Version 1.0",
+                "size": 7074
+             }, {
+                "name": "ENABLED",
+                "size": 5731
+             }, {
+                "name": "Framework Version: 1",
+                "size": 5731
+             }, {
+                "name": "Provided",
+                "size": 5731
+            }] 
+        }, {
+            "name": "atlassian-gadgets-shared-4.3.2.jar",
+            "children": [{
+                "name": "Version 0.0",
+                "size": 7074
+             }, {
+                "name": "ENABLED",
+                "size": 5731
+             }, {
+                "name": "Framework Version: 1",
+                "size": 5731
+             }, {
+                "name": "Bundled",
+                "size": 5731
+            }] 
+        }, {
+            "name": "Gadgets Plugin",
+            "children": [{
+                "name": "Version 9.0.3",
+                "size": 7074
+             }, {
+                "name": "ENABLED",
+                "size": 5731
+             }, {
+                "name": "Framework Version: 2",
+                "size": 5731
+             }, {
+                "name": "Bundled",
+                "size": 5731
+            }] 
+        }, {
+            "name": "Confluence Inline Comments",
+            "children": [{
+                "name": "Version 6.0.11",
+                "size": 7074
+             }, {
+                "name": "ENABLED",
+                "size": 5731
+             }, {
+                "name": "Framework Version: 2",
+                "size": 5731
+             }, {
+                "name": "Bundled",
+                "size": 5731
+            }]     
+        }, {
+            "name": "Confluence View Source",
+            "children": [{
+                "name": "Version 6.15.2",
+                "size": 7074
+             }, {
+                "name": "ENABLED",
+                "size": 5731
+             }, {
+                "name": "Framework Version: 2",
+                "size": 5731
+             }, {
+                "name": "Bundled",
+                "size": 5731
+            }] 
+        }, {
+            "name": "Confluence View Storage Format",
+            "children": [{
+                "name": "Version 5.8.0",
+                "size": 7074
+             }, {
+                "name": "ENABLED",
+                "size": 5731
+             }, {
+                "name": "Framework Version: 2",
+                "size": 5731
+             }, {
+                "name": "Bundled",
+                "size": 5731
+            }] 
+        }, {
+            "name": "Atlassian Troubleshooting and Support Tools",
+            "children": [{
+                "name": "Version 1.15.2",
+                "size": 7074
+             }, {
+                "name": "ENABLED",
+                "size": 5731
+             }, {
+                "name": "Framework Version: 2",
+                "size": 5731
+             }, {
+                "name": "Bundled",
+                "size": 5731
+            }] 
+        }, {
+            "name": "Atlassian WebHooks Plugin",
+            "children": [{
+                "name": "Version 3.2.0",
+                "size": 7074
+             }, {
+                "name": "ENABLED",
+                "size": 5731
+             }, {
+                "name": "Framework Version: 3",
+                "size": 5731
+             }, {
+                "name": "Bundled",
+                "size": 5731
+            }] 
+        }, {
+            "name": "Issue Status Plugin",
+            "children": [{
+                "name": "Version 1.1.7",
+                "size": 7074
+             }, {
+                "name": "ENABLED",
+                "size": 5731
+             }, {
+                "name": "Framework Version: 2",
+                "size": 5731
+             }, {
+                "name": "Bundled",
+                "size": 5731
+            }]     
+        }, {
+            "name": "Gadget Spec Publisher Plugin",
+            "children": [{
+                "name": "Version 4.3.2",
+                "size": 7074
+             }, {
+                "name": "ENABLED",
+                "size": 5731
+             }, {
+                "name": "Framework Version: 2",
+                "size": 5731
+             }, {
+                "name": "Bundled",
+                "size": 5731
+            }] 
+        }, {
+            "name": "Lucene Searcher Initializers",
+            "children": [{
+                "name": "Version 1.0",
+                "size": 7074
+             }, {
+                "name": "ENABLED",
+                "size": 5731
+             }, {
+                "name": "Framework Version: 1",
+                "size": 5731
+             }, {
+                "name": "Provided",
+                "size": 5731
+            }] 
+        }, {
+            "name": "Confluence Custom Favicon Plugin",
+            "children": [{
+                "name": "Version 1.1.6",
+                "size": 7074
+             }, {
+                "name": "ENABLED",
+                "size": 5731
+             }, {
+                "name": "Framework Version: 2",
+                "size": 5731
+             }, {
+                "name": "Bundled",
+                "size": 5731
+            }] 
+        }, {
+            "name": "Confluence Onboarding",
+            "children": [{
+                "name": "Version 4.1.1",
+                "size": 7074
+             }, {
+                "name": "ENABLED",
+                "size": 5731
+             }, {
+                "name": "Framework Version: 2",
+                "size": 5731
+             }, {
+                "name": "Bundled",
+                "size": 5731
+            }] 
+        }, {
+            "name": "TDM Merger",
+            "children": [{
+                "name": "Version 6.15.2",
+                "size": 7074
+             }, {
+                "name": "ENABLED",
+                "size": 5731
+             }, {
+                "name": "Framework Version: 2",
+                "size": 5731
+             }, {
+                "name": "Bundled",
+                "size": 5731
+            }] 
+        }, {
+            "name": "User Administration",
+            "children": [{
+                "name": "Version 1.0",
+                "size": 7074
+             }, {
+                "name": "ENABLED",
+                "size": 5731
+             }, {
+                "name": "Framework Version: 1",
+                "size": 5731
+             }, {
+                "name": "Provided",
+                "size": 5731
+            }]     
+        }, {
+            "name": "Atlassian LESS Transformer Plugin",
+            "children": [{
+                "name": "Version 3.2.1",
+                "size": 7074
+             }, {
+                "name": "ENABLED",
+                "size": 5731
+             }, {
+                "name": "Framework Version: 3",
+                "size": 5731
+             }, {
+                "name": "Bundled",
+                "size": 5731
+            }] 
+        }, {
+            "name": "Comment Action Sections",
+            "children": [{
+                "name": "Version 1.0",
+                "size": 7074
+             }, {
+                "name": "ENABLED",
+                "size": 5731
+             }, {
+                "name": "Framework Version: 1",
+                "size": 5731
+             }, {
+                "name": "Provided",
+                "size": 5731
+            }] 
+        }, {
+            "name": "Core Extractors",
+            "children": [{
+                "name": "Version 1.4",
+                "size": 7074
+             }, {
+                "name": "ENABLED",
+                "size": 5731
+             }, {
+                "name": "Framework Version: 1",
+                "size": 5731
+             }, {
+                "name": "Provided",
+                "size": 5731
+            }] 
+        }, {
+            "name": "Attachment Extractors",
+            "children": [{
+                "name": "Version 1.3",
+                "size": 7074
+             }, {
+                "name": "ENABLED",
+                "size": 5731
+             }, {
+                "name": "Framework Version: 2",
+                "size": 5731
+             }, {
+                "name": "Bundled",
+                "size": 5731
+            }] 
+        }, {
+            "name": "Atlassian Templates Import Framework",
+            "children": [{
+                "name": "Version 0.3.1",
+                "size": 7074
+             }, {
+                "name": "ENABLED",
+                "size": 5731
+             }, {
+                "name": "Framework Version: 2",
+                "size": 5731
+             }, {
+                "name": "Bundled",
+                "size": 5731
+            }] 
+        }, {
+            "name": "Profile Picture",
+            "children": [{
+                "name": "Version 2.0.6",
+                "size": 7074
+             }, {
+                "name": "ENABLED",
+                "size": 5731
+             }, {
+                "name": "Framework Version: 2",
+                "size": 5731
+             }, {
+                "name": "Bundled",
+                "size": 5731
+            }] 
+        }, {
+            "name": "Atlassian Bot Session Killer",
+            "children": [{
+                "name": "Version 1.7.2.1",
+                "size": 7074
+             }, {
+                "name": "ENABLED",
+                "size": 5731
+             }, {
+                "name": "Framework Version: 2",
+                "size": 5731
+             }, {
+                "name": "Bundled",
+                "size": 5731
+            }]     
+        }, {
+            "name": "Confluence Italian (Italy) Language Pack",
+            "children": [{
+                "name": "Version 6.15.0.rc1-20190311231818",
+                "size": 7074
+             }, {
+                "name": "ENABLED",
+                "size": 5731
+             }, {
+                "name": "Framework Version: 2",
+                "size": 5731
+             }, {
+                "name": "Bundled",
+                "size": 5731
+            }] 
+        }, {
+            "name": "Confluence Mail Archiving Plugin",
+            "children": [{
+                "name": "Version 6.0.0",
+                "size": 7074
+             }, {
+                "name": "INSTALLED",
+                "size": 5731
+             }, {
+                "name": "Framework Version: 2",
+                "size": 5731
+             }, {
+                "name": "Bundled",
+                "size": 5731
+            }] 
+        }, {
+            "name": "Atlassian Playbook Blueprints",
+            "children": [{
+                "name": "Version 2.0.2",
+                "size": 7074
+             }, {
+                "name": "ENABLED",
+                "size": 5731
+             }, {
+                "name": "Framework Version: 2",
+                "size": 5731
+             }, {
+                "name": "Bundled",
+                "size": 5731
+            }] 
+        }, {
+            "name": "Core Listeners",
+            "children": [{
+                "name": "Version 1.3",
+                "size": 7074
+             }, {
+                "name": "ENABLED",
+                "size": 5731
+             }, {
+                "name": "Framework Version: 1",
+                "size": 5731
+             }, {
+                "name": "Provided",
+                "size": 5731
+            }] 
+        }, {
+            "name": "Confluence French (France) Language Pack",
+            "children": [{
+                "name": "Version 6.15.0.rc1-20190311231818",
+                "size": 7074
+             }, {
+                "name": "ENABLED",
+                "size": 5731
+             }, {
+                "name": "Framework Version: 2",
+                "size": 5731
+             }, {
+                "name": "Bundled",
+                "size": 5731
+            }] 
+        }, {
+            "name": "License REST plugin for Confluence",
+            "children": [{
+                "name": "Version 6.15.2",
+                "size": 7074
+             }, {
+                "name": "ENABLED",
+                "size": 5731
+             }, {
+                "name": "Framework Version: 2",
+                "size": 5731
+             }, {
+                "name": "Bundled",
+                "size": 5731
+            }] 
+        }, {
+            "name": "Confluence German (Germany) Language Pack",
+            "children": [{
+                "name": "Version 6.15.0.rc1-20190311231818",
+                "size": 7074
+             }, {
+                "name": "ENABLED",
+                "size": 5731
+             }, {
+                "name": "Framework Version: 2",
+                "size": 5731
+             }, {
+                "name": "Bundled",
+                "size": 5731
+            }] 
+        }, {
+            "name": "Atlassian Notifications",
+            "children": [{
+                "name": "Version 1.1.13",
+                "size": 7074
+             }, {
+                "name": "ENABLED",
+                "size": 5731
+             }, {
+                "name": "Framework Version: 2",
+                "size": 5731
+             }, {
+                "name": "Bundled",
+                "size": 5731
+            }]     
+        }, {
+            "name": "Confluence browser fixes",
+            "children": [{
+                "name": "Version 2.0",
+                "size": 7074
+             }, {
+                "name": "ENABLED",
+                "size": 5731
+             }, {
+                "name": "Framework Version: 2",
+                "size": 5731
+             }, {
+                "name": "Bundled",
+                "size": 5731
+            }] 
+        }, {
+            "name": "Confluence View File Macro",
+            "children": [{
+                "name": "Version 4.0.3",
+                "size": 7074
+             }, {
+                "name": "ENABLED",
+                "size": 5731
+             }, {
+                "name": "Framework Version: 2",
+                "size": 5731
+             }, {
+                "name": "Bundled",
+                "size": 5731
+            }] 
+        }, {
+            "name": "Confluence Quick Edit Plugin",
+            "children": [{
+                "name": "Version 6.15.2",
+                "size": 7074
+             }, {
+                "name": "ENABLED",
+                "size": 5731
+             }, {
+                "name": "Framework Version: 2",
+                "size": 5731
+             }, {
+                "name": "Bundled",
+                "size": 5731
+            }] 
+        }, {
+            "name": "Confluence GraphQL API Module",
+            "children": [{
+                "name": "Version 6.15.2",
+                "size": 7074
+             }, {
+                "name": "ENABLED",
+                "size": 5731
+             }, {
+                "name": "Framework Version: 2",
+                "size": 5731
+             }, {
+                "name": "Bundled",
+                "size": 5731
+            }] 
+        }, {
+            "name": "Confluence Batch Notifications",
+            "children": [{
+                "name": "Version 8.11.2",
+                "size": 7074
+             }, {
+                "name": "ENABLED",
+                "size": 5731
+             }, {
+                "name": "Framework Version: 2",
+                "size": 5731
+             }, {
+                "name": "Bundled",
+                "size": 5731
+            }] 
+        }, {
+            "name": "Edit Settings Sections",
+            "children": [{
+                "name": "Version 1.0",
+                "size": 7074
+             }, {
+                "name": "ENABLED",
+                "size": 5731
+             }, {
+                "name": "Framework Version: 1",
+                "size": 5731
+             }, {
+                "name": "Provided",
+                "size": 5731
+            }] 
+        }, {
+            "name": "Layout Macros",
+            "children": [{
+                "name": "Version 2.2.4",
+                "size": 7074
+             }, {
+                "name": "ENABLED",
+                "size": 5731
+             }, {
+                "name": "Framework Version: 1",
+                "size": 5731
+             }, {
+                "name": "Bundled",
+                "size": 5731
+            }] 
+        }, {
+            "name": "Confluence Previews",
+            "children": [{
+                "name": "Version 8.1.2",
+                "size": 7074
+             }, {
+                "name": "ENABLED",
+                "size": 5731
+             }, {
+                "name": "Framework Version: 2",
+                "size": 5731
+             }, {
+                "name": "Bundled",
+                "size": 5731
+            }] 
+        }, {
+            "name": "confluence-software-blueprints",
+            "children": [{
+                "name": "Version 6.0.0",
+                "size": 7074
+             }, {
+                "name": "ENABLED",
+                "size": 5731
+             }, {
+                "name": "Framework Version: 2",
+                "size": 5731
+             }, {
+                "name": "Bundled",
+                "size": 5731
+            }]     
+        }, {
+            "name": "Table of Contents Plugin",
+            "children": [{
+                "name": "Version 5.0.1",
+                "size": 7074
+             }, {
+                "name": "ENABLED",
+                "size": 5731
+             }, {
+                "name": "Framework Version: 2",
+                "size": 5731
+             }, {
+                "name": "Bundled",
+                "size": 5731
+            }] 
+        }, {
+            "name": "Lucene Boosting Strategies",
+            "children": [{
+                "name": "Version 1.0",
+                "size": 7074
+             }, {
+                "name": "ENABLED",
+                "size": 5731
+             }, {
+                "name": "Framework Version: 1",
+                "size": 5731
+             }, {
+                "name": "Provided",
+                "size": 5731
+            }] 
+        }, {
+            "name": "Atlassian Diagnostics - Plugin",
+            "children": [{
+                "name": "Version 1.1.1",
+                "size": 7074
+             }, {
+                "name": "ENABLED",
+                "size": 5731
+             }, {
+                "name": "Framework Version: 2",
+                "size": 5731
+             }, {
+                "name": "Bundled",
+                "size": 5731
+            }] 
+        }, {
+            "name": "Atlassian Template Renderer Velocity 1.6 Plugin",
+            "children": [{
+                "name": "Version 2.1.0",
+                "size": 7074
+             }, {
+                "name": "ENABLED",
+                "size": 5731
+             }, {
+                "name": "Framework Version: 2",
+                "size": 5731
+             }, {
+                "name": "Bundled",
+                "size": 5731
+            }] 
+        }, {
+            "name": "Admin Sections",
+            "children": [{
+                "name": "Version 1.0",
+                "size": 7074
+             }, {
+                "name": "ENABLED",
+                "size": 5731
+             }, {
+                "name": "Framework Version: 1",
+                "size": 5731
+             }, {
+                "name": "Provided",
+                "size": 5731
+            }] 
+        }, {
+            "name": "Confluence Content Property Storage Plugin",
+            "children": [{
+                "name": "Version 6.15.2",
+                "size": 7074
+             }, {
+                "name": "ENABLED",
+                "size": 5731
+             }, {
+                "name": "Framework Version: 2",
+                "size": 5731
+             }, {
+                "name": "Bundled",
+                "size": 5731
+            }] 
+        }, {
+            "name": "Confluence Mobile Web Plugin",
+            "children": [{
+                "name": "Version 9.1.7",
+                "size": 7074
+             }, {
+                "name": "ENABLED",
+                "size": 5731
+             }, {
+                "name": "Framework Version: 2",
+                "size": 5731
+             }, {
+                "name": "Bundled",
+                "size": 5731
+            }] 
+        }, {
+            "name": "Confluence Macro Usage",
+            "children": [{
+                "name": "Version 6.15.2",
+                "size": 7074
+             }, {
+                "name": "ENABLED",
+                "size": 5731
+             }, {
+                "name": "Framework Version: 2",
+                "size": 5731
+             }, {
+                "name": "Bundled",
+                "size": 5731
+            }] 
+        }, {
+            "name": "Confluence Request Access Plugin",
+            "children": [{
+                "name": "Version 4.0.6",
+                "size": 7074
+             }, {
+                "name": "ENABLED",
+                "size": 5731
+             }, {
+                "name": "Framework Version: 2",
+                "size": 5731
+             }, {
+                "name": "Bundled",
+                "size": 5731
+            }] 
+        }, {
+            "name": "Confluence Remote Page View - Plugin",
+            "children": [{
+                "name": "Version 1.16",
+                "size": 7074
+             }, {
+                "name": "ENABLED",
+                "size": 5731
+             }, {
+                "name": "Framework Version: 2",
+                "size": 5731
+             }, {
+                "name": "Bundled",
+                "size": 5731
+            }]     
+        }, {
+            "name": "Confluence Portuguese (Brazil) Language Pack",
+            "children": [{
+                "name": "Version 6.15.0.rc1-20190311231818",
+                "size": 7074
+             }, {
+                "name": "ENABLED",
+                "size": 5731
+             }, {
+                "name": "Framework Version: 2",
+                "size": 5731
+             }, {
+                "name": "Bundled",
+                "size": 5731
+            }] 
+        }, {
+            "name": "Applinks - Plugin - OAuth",
+            "children": [{
+                "name": "Version 5.4.12",
+                "size": 7074
+             }, {
+                "name": "ENABLED",
+                "size": 5731
+             }, {
+                "name": "Framework Version: 2",
+                "size": 5731
+             }, {
+                "name": "Bundled",
+                "size": 5731
+            }] 
+        }, {
+            "name": "Widget Connector",
+            "children": [{
+                "name": "Version 3.1.6",
+                "size": 7074
+             }, {
+                "name": "ENABLED",
+                "size": 5731
+             }, {
+                "name": "Framework Version: 2",
+                "size": 5731
+             }, {
+                "name": "Bundled",
+                "size": 5731
+            }]
+        }]
+    }, {
+        "name": "Communardo",
+        "children": [{
+            "name": "Metadata for Confluence",
+            "children": [{
+                "name": "Version 3.1.0",
+                "size": 1983
+            }, {
+                "name": "ENABLED",
+                "size": 2047
+            }, {
+                "name": "Framework Version: 2",
+                "size": 1375
+            }, {
+                "name": "User Installed",
+                "size": 8746
+            }]
+        }]
+    }, {
+        "name": "TNG Technology Consulting GmbH",
+        "children": [{
+            "name": "Tableenhancer for Confluence",
+            "children": [{
+                "name": "Version 3.1.4",
+                "size": 1983
+            }, {
+                "name": "ENABLED",
+                "size": 2047
+            }, {
+                "name": "Framework Version: 2",
+                "size": 1375
+            }, {
+                "name": "User Installed",
+                "size": 8746
+            }]
+        }]
+    }, {
+        "name": "Bob Swift Atlassian Add-ons",
+        "children": [{
+            "name": "SQL (Pro Edition)",
+            "children": [{
+                "name": "Version 9.2.0",
+                "size": 1983
+            }, {
+                "name": "ENABLED",
+                "size": 2047
+            }, {
+                "name": "Framework Version: 2",
+                "size": 1375
+            }, {
+                "name": "User Installed",
+                "size": 8746
+            }]
+        }, {
+            "name": "Table Library",
+            "children": [{
+                "name": "Version 4.0.1",
+                "size": 7074
+             }, {
+                "name": "ENABLED",
+                "size": 5731
+             }, {
+                "name": "Framework Version: 2",
+                "size": 5731
+             }, {
+                "name": "User Installed",
+                "size": 5731
+            }]
+        }]
+    }, {
+        "name": "ServiceRocket",
+        "children": [{
+            "name": "RB Support - Core",
+            "children": [{
+                "name": "Version 1.5.1",
+                "size": 1983
+            }, {
+                "name": "ENABLED",
+                "size": 2047
+            }, {
+                "name": "Framework Version: 2",
+                "size": 1375
+            }, {
+                "name": "User Installed",
+                "size": 8746
+            }]
+        }, {
+            "name": "RB Storage - Core",
+            "children": [{
+                "name": "Version 5.5.0",
+                "size": 7074
+             }, {
+                "name": "ENABLED",
+                "size": 5731
+             }, {
+                "name": "Framework Version: 2",
+                "size": 5731
+             }, {
+                "name": "User Installed",
+                "size": 5731
+            }]   
+        }, {
+            "name": "RB Storage - Confluence",
+            "children": [{
+                "name": "Version 5.4.0",
+                "size": 7074
+             }, {
+                "name": "ENABLED",
+                "size": 5731
+             }, {
+                "name": "Framework Version: 2",
+                "size": 5731
+             }, {
+                "name": "User Installed",
+                "size": 5731
+            }]  
+        }, {
+            "name": "ServiceRocket Utility Library",
+            "children": [{
+                "name": "Version 2.2.0",
+                "size": 7074
+             }, {
+                "name": "ENABLED",
+                "size": 5731
+             }, {
+                "name": "Framework Version: 2",
+                "size": 5731
+             }, {
+                "name": "User Installed",
+                "size": 5731
+            }]
+        }, {
+            "name": "RB Supplier - Core",
+            "children": [{
+                "name": "Version 1.4.1",
+                "size": 7074
+             }, {
+                "name": "ENABLED",
+                "size": 5731
+             }, {
+                "name": "Framework Version: 2",
+                "size": 5731
+             }, {
+                "name": "User Installed",
+                "size": 5731
+            }]
+        }, {
+            "name": "RB Storage - Confluence",
+            "children": [{
+                "name": "Version 5.5.0",
+                "size": 7074
+             }, {
+                "name": "ENABLED",
+                "size": 5731
+             }, {
+                "name": "Framework Version: 2",
+                "size": 5731
+             }, {
+                "name": "User Installed",
+                "size": 5731
+            }]
+        }, {
+            "name": "RB Storage - Servlet",
+            "children": [{
+                "name": "Version 5.5.0",
+                "size": 7074
+             }, {
+                "name": "ENABLED",
+                "size": 5731
+             }, {
+                "name": "Framework Version: 2",
+                "size": 5731
+             }, {
+                "name": "User Installed",
+                "size": 5731
+            }]
+        }]
+    }, {
+        "name": "AppFusions",
+        "children": [{
+            "name": "Box in Confluence",
+            "children": [{
+                "name": "Version 3.3.0",
+                "size": 1983
+            }, {
+                "name": "ENABLED",
+                "size": 2047
+            }, {
+                "name": "Framework Version: 2",
+                "size": 1375
+            }, {
+                "name": "User Installed",
+                "size": 8746
+            }]
+        }, {
+            "name": "Federated Search in Confluence",
+            "children": [{
+                "name": "Version 1.0.9",
+                "size": 7074
+             }, {
+                "name": "ENABLED",
+                "size": 5731
+             }, {
+                "name": "Framework Version: 2",
+                "size": 5731
+             }, {
+                "name": "User Installed",
+                "size": 5731
+            }]
+        }]
+    }, {
+        "name": "StiltSoft",
+        "children": [{
+            "name": "No Email Storm",
+            "children": [{
+                "name": "Version 2.2.5",
+                "size": 1983
+            }, {
+                "name": "ENABLED",
+                "size": 2047
+            }, {
+                "name": "Framework Version: 2",
+                "size": 1375
+            }, {
+                "name": "User Installed",
+                "size": 8746
+            }]
+        }]
+    }, {
+        "name": "SpringSource",
+        "children": [{
+            "name": "Java Concurrency in Practice Annotations",
+            "children": [{
+                "name": "Version 1.0.0",
+                "size": 1983
+            }, {
+                "name": "ENABLED",
+                "size": 2047
+            }, {
+                "name": "Framework Version: 2",
+                "size": 1375
+            }, {
+                "name": "Bundled",
+                "size": 8746
+            }]
+        }]
+    }, {
+        "name": "Lucidchart",
+        "children": [{
+            "name": "Lucidchart Plugin",
+            "children": [{
+                "name": "Version 1.23.16",
+                "size": 1983
+            }, {
+                "name": "ENABLED",
+                "size": 2047
+            }, {
+                "name": "Framework Version: 2",
+                "size": 1375
+            }, {
+                "name": "User Installed",
+                "size": 8746
+            }]
+        }]
+    }, {
+        "name": "Artemis Software",
+        "children": [{
+            "name": "Send EMail To Page Plugin",
+            "children": [{
+                "name": "Version 2.9.1",
+                "size": 1983
+            }, {
+                "name": "INSTALLED",
+                "size": 2047
+            }, {
+                "name": "Framework Version: 2",
+                "size": 1375
+            }, {
+                "name": "User Installed",
+                "size": 8746
+            }]
+        }]
+    }, {
+        "name": "Akeles Consulting Pte Ltd",
+        "children": [{
+            "name": "Countdown Timer",
+            "children": [{
+                "name": "Version 1.6.1",
+                "size": 1983
+            }, {
+                "name": "ENABLED",
+                "size": 2047
+            }, {
+                "name": "Framework Version: 2",
+                "size": 1375
+            }, {
+                "name": "User Installed",
+                "size": 8746
+            }]
+        }]
+    }, {
+        "name": "W Knowledge",
+        "children": [{
+            "name": "Glossary - Terminology Manager",
+            "children": [{
+                "name": "Version 1.7.1",
+                "size": 1983
+            }, {
+                "name": "ENABLED",
+                "size": 2047
+            }, {
+                "name": "Framework Version: 2",
+                "size": 1375
+            }, {
+                "name": "User Installed",
+                "size": 8746
+            }]
+        }]
+    }, {
+        "name": "Vertuna LLC",
+        "children": [{
+            "name": "ConfiForms, forms and workflows app for Confluence",
+            "children": [{
+                "name": "Version 2.0.31",
+                "size": 1983
+            }, {
+                "name": "ENABLED",
+                "size": 2047
+            }, {
+                "name": "Framework Version: 2",
+                "size": 1375
+            }, {
+                "name": "User Installed",
+                "size": 8746
+            }]
+        }]
+    }, {
+        "name": "Scandio GmbH",
+        "children": [{
+            "name": "HideElements Macro",
+            "children": [{
+                "name": "Version 2.3.0",
+                "size": 1983
+            }, {
+                "name": "ENABLED",
+                "size": 2047
+            }, {
+                "name": "Framework Version: 2",
+                "size": 1375
+            }, {
+                "name": "User Installed",
+                "size": 8746
+            }]
+        }]
+    }, {
+        "name": "Unknown",
+        "children": [{
+            "name": "Confluence AUI Staging",
+            "children": [{
+                "name": "Version 6.15.2",
+                "size": 1983
+            }, {
+                "name": "ENABLED",
+                "size": 2047
+            }, {
+                "name": "Framework Version: 2",
+                "size": 1375
+            }, {
+                "name": "User Installed",
+                "size": 8746
+            }]
+        }, {
+            "name": "jquery",
+            "children": [{
+                "name": "Version 1.7.2.1-confluence-custom-m03",
+                "size": 7074
+             }, {
+                "name": "ENABLED",
+                "size": 5731
+             }, {
+                "name": "Framework Version: 2",
+                "size": 5731
+             }, {
+                "name": "User Installed",
+                "size": 5731
+            }]
+        }, {
+            "name": "Confluence PDF Export",
+            "children": [{
+                "name": "Version 6.2.2",
+                "size": 7074
+             }, {
+                "name": "ENABLED",
+                "size": 5731
+             }, {
+                "name": "Framework Version: 1",
+                "size": 5731
+             }, {
+                "name": "Bundled",
+                "size": 5731
+            }]
+        }]
+    }, {
+        "name": "re:solution",
+        "children": [{
+            "name": "SAMLWrapper-Plugin",
+            "children": [{
+                "name": "Version 3.1.6",
+                "size": 1983
+            }, {
+                "name": "ENABLED",
+                "size": 2047
+            }, {
+                "name": "Framework Version: 2",
+                "size": 1375
+            }, {
+                "name": "User Installed",
+                "size": 8746
+            }]
+        }, {
+            "name": "SAML Single Sign On for Confluence",
+            "children": [{
+                "name": "Version 3.1.6",
+                "size": 7074
+             }, {
+                "name": "ENABLED",
+                "size": 5731
+             }, {
+                "name": "Framework Version: 2",
+                "size": 5731
+             }, {
+                "name": "User Installed",
+                "size": 5731
+            }]
+        }]
+    }, {
+        "name": "Candylio Ltd",
+        "children": [{
+            "name": "Confluence Prezi Player",
+            "children": [{
+                "name": "Version 1.1.5",
+                "size": 1983
+            }, {
+                "name": "ENABLED",
+                "size": 2047
+            }, {
+                "name": "Framework Version: 2",
+                "size": 1375
+            }, {
+                "name": "User Installed",
+                "size": 8746
+            }]
+        }]
+    }, {
+        "name": "bitvoodoo ag",
+        "children": [{
+            "name": "Viewtracker - Analytics for Confluence",
+            "children": [{
+                "name": "Version 5.5.0",
+                "size": 1983
+            }, {
+                "name": "ENABLED",
+                "size": 2047
+            }, {
+                "name": "Framework Version: 2",
+                "size": 1375
+            }, {
+                "name": "User Installed",
+                "size": 8746
+            }]
+        }, {
+            "name": "bitvoodoo Registration for Confluence",
+            "children": [{
+                "name": "Version 1.3.4",
+                "size": 7074
+             }, {
+                "name": "ENABLED",
+                "size": 5731
+             }, {
+                "name": "Framework Version: 2",
+                "size": 5731
+             }, {
+                "name": "User Installed",
+                "size": 5731
+            }]
+        }]
+    }, {
+        "name": "RefinedWiki",
+        "children": [{
+            "name": "RefinedToolkit for Confluence",
+            "children": [{
+                "name": "Version 2.1.2",
+                "size": 1983
+            }, {
+                "name": "ENABLED",
+                "size": 2047
+            }, {
+                "name": "Framework Version: 2",
+                "size": 1375
+            }, {
+                "name": "User Installed",
+                "size": 8746
+            }]
+        }]
+    }, {
+        "name": "The Apache Software Foundation",
+        "children": [{
+            "name": "Apache ServiceMix :: Bundles :: spring-jdbc",
+            "children": [{
+                "name": "Version 4.3.20.RELEASE_1",
+                "size": 1983
+            }, {
+                "name": "ENABLED",
+                "size": 2047
+            }, {
+                "name": "Framework Version: 2",
+                "size": 1375
+            }, {
+                "name": "User Installed",
+                "size": 8746
+            }]
+        }, {
+            "name": "Apache ServiceMix :: Bundles :: spring-tx",
+            "children": [{
+                "name": "Version 4.3.20.RELEASE_1",
+                "size": 7074
+             }, {
+                "name": "ENABLED",
+                "size": 5731
+             }, {
+                "name": "Framework Version: 2",
+                "size": 5731
+             }, {
+                "name": "User Installed",
+                "size": 5731
+            }]
+        }]
+    }, {
+        "name": "Brikit",
+        "children": }, {
+            "name": "Brikit Theme Press",
+            "children": [{
+                "name": "Version 4.0.4",
+                "size": 7074
+             }, {
+                "name": "ENABLED",
+                "size": 5731
+             }, {
+                "name": "Framework Version: 2",
+                "size": 5731
+             }, {
+                "name": "User Installed",
+                "size": 5731
+            }]
+    }]
+}
+
+
+// Set the dimensions and margins of the diagram
+var margin = {top: 20, right: 90, bottom: 30, left: 90},
+    width = 960 - margin.left - margin.right,
+    height = 500 - margin.top - margin.bottom;
+
+// append the svg object to the body of the page
+// appends a 'group' element to 'svg'
+// moves the 'group' element to the top left margin
+var svg = d3.select("body").append("svg")
+    .attr("width", width + margin.right + margin.left)
+    .attr("height", height + margin.top + margin.bottom)
+  .append("g")
+    .attr("transform", "translate("
+          + margin.left + "," + margin.top + ")");
+
+var i = 0,
+    duration = 750,
+    root;
+
+// declares a tree layout and assigns the size
+var treemap = d3.tree().size([height, width]);
+
+// Assigns parent, children, height, depth
+root = d3.hierarchy(treeData, function(d) { return d.children; });
+root.x0 = height / 2;
+root.y0 = 0;
+
+// Collapse after the second level
+root.children.forEach(collapse);
+
+update(root);
+
+// Collapse the node and all it's children
+function collapse(d) {
+  if(d.children) {
+    d._children = d.children
+    d._children.forEach(collapse)
+    d.children = null
+  }
+}
+
+function update(source) {
+
+  // Assigns the x and y position for the nodes
+  var treeData = treemap(root);
+
+  // Compute the new tree layout.
+  var nodes = treeData.descendants(),
+      links = treeData.descendants().slice(1);
+
+  // Normalize for fixed-depth.
+  nodes.forEach(function(d){ d.y = d.depth * 180});
+
+  // ****************** Nodes section ***************************
+
+  // Update the nodes...
+  var node = svg.selectAll('g.node')
+      .data(nodes, function(d) {return d.id || (d.id = ++i); });
+
+  // Enter any new modes at the parent's previous position.
+  var nodeEnter = node.enter().append('g')
+      .attr('class', 'node')
+      .attr("transform", function(d) {
+        return "translate(" + source.y0 + "," + source.x0 + ")";
+    })
+    .on('click', click);
+
+  // Add Circle for the nodes
+  nodeEnter.append('circle')
+      .attr('class', 'node')
+      .attr('r', 1e-6)
+      .style("fill", function(d) {
+          return d._children ? "lightsteelblue" : "#fff";
+      });
+
+  // Add labels for the nodes
+  nodeEnter.append('text')
+      .attr("dy", ".35em")
+      .attr("x", function(d) {
+          return d.children || d._children ? -13 : 13;
+      })
+      .attr("text-anchor", function(d) {
+          return d.children || d._children ? "end" : "start";
+      })
+      .text(function(d) { return d.data.name; });
+
+  // UPDATE
+  var nodeUpdate = nodeEnter.merge(node);
+
+  // Transition to the proper position for the node
+  nodeUpdate.transition()
+    .duration(duration)
+    .attr("transform", function(d) { 
+        return "translate(" + d.y + "," + d.x + ")";
+     });
+
+  // Update the node attributes and style
+  nodeUpdate.select('circle.node')
+    .attr('r', 10)
+    .style("fill", function(d) {
+        return d._children ? "lightsteelblue" : "#fff";
+    })
+    .attr('cursor', 'pointer');
+
+
+  // Remove any exiting nodes
+  var nodeExit = node.exit().transition()
+      .duration(duration)
+      .attr("transform", function(d) {
+          return "translate(" + source.y + "," + source.x + ")";
+      })
+      .remove();
+
+  // On exit reduce the node circles size to 0
+  nodeExit.select('circle')
+    .attr('r', 1e-6);
+
+  // On exit reduce the opacity of text labels
+  nodeExit.select('text')
+    .style('fill-opacity', 1e-6);
+
+  // ****************** links section ***************************
+
+  // Update the links...
+  var link = svg.selectAll('path.link')
+      .data(links, function(d) { return d.id; });
+
+  // Enter any new links at the parent's previous position.
+  var linkEnter = link.enter().insert('path', "g")
+      .attr("class", "link")
+      .attr('d', function(d){
+        var o = {x: source.x0, y: source.y0}
+        return diagonal(o, o)
+      });
+
+  // UPDATE
+  var linkUpdate = linkEnter.merge(link);
+
+  // Transition back to the parent element position
+  linkUpdate.transition()
+      .duration(duration)
+      .attr('d', function(d){ return diagonal(d, d.parent) });
+
+  // Remove any exiting links
+  var linkExit = link.exit().transition()
+      .duration(duration)
+      .attr('d', function(d) {
+        var o = {x: source.x, y: source.y}
+        return diagonal(o, o)
+      })
+      .remove();
+
+  // Store the old positions for transition.
+  nodes.forEach(function(d){
+    d.x0 = d.x;
+    d.y0 = d.y;
+  });
+
+  // Creates a curved (diagonal) path from parent to the child nodes
+  function diagonal(s, d) {
+    path = `M ${s.y} ${s.x}
+            C ${(s.y + d.y) / 2} ${s.x},
+              ${(s.y + d.y) / 2} ${d.x},
+              ${d.y} ${d.x}`
+
+    return path
+  }
+
+  // Toggle children on click.
+  function click(d) {
+    if (d.children) {
+        d._children = d.children;
+        d.children = null;
+      } else {
+        d.children = d._children;
+        d._children = null;
+      }
+    update(d);
+  }
+}
+
+</script>
+</body>
